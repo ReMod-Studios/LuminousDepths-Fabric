@@ -1,8 +1,9 @@
-package com.remodstudios.lumidep.Blocks.BlockEntity;
+package com.remodstudios.lumidep.Blocks;
+
 import net.minecraft.block.Block;
 
-public class GorgeMassBlock extends Block {
-    public GorgeMassBlock(Settings settings) {
-		super(settings);
+public class BeastBlock extends Block {
+    public BeastBlock(Settings settings) {
+        super(settings);
     }
 }

@@ -3,7 +3,6 @@ package com.remodstudios.lumidep.Blocks;
 import com.remodstudios.lumidep.LuminousDepths;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
