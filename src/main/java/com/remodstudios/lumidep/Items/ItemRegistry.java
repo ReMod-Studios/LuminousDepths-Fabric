@@ -21,11 +21,18 @@ public class ItemRegistry {
 
     private static final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP);
 
+    // Items begin here
     public static final Item ESCA = new Item(BASE_SETTINGS);
+    public static final Item TUNGSTEN_INGOT = new Item(BASE_SETTINGS);
+    public static final Item TUNGSTEN_NUGGET = new Item(BASE_SETTINGS);
 
     public static void init(){
         register(ESCA, "esca");
+        register(TUNGSTEN_INGOT, "tungsten_ingot");
+        register(TUNGSTEN_NUGGET, "tungsten_nugget");
     }
+
+    // Registry Methods
     private static Item register(Item item, String name) {
         return Registry.register(Registry.ITEM, LuminousDepths.id(name), item);
     }
