@@ -1,5 +1,7 @@
 package com.remodstudios.lumidep;
 
+import com.remodstudios.lumidep.Blocks.BlockRegistry;
+import com.remodstudios.lumidep.Items.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 
 import org.apache.logging.log4j.Level;
@@ -17,6 +19,8 @@ public class LuminousDepths implements ModInitializer {
     public void onInitialize() {
         log(Level.INFO, "Initializing");
         //TODO: Initializer
+        ItemRegistry.init();
+        BlockRegistry.init();
     }
 
     public static void log(Level level, String message){
