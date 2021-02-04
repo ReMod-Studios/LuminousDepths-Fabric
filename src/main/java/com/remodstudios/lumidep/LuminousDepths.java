@@ -1,10 +1,9 @@
 package com.remodstudios.lumidep;
 
-import com.remodstudios.lumidep.Blocks.BlockRegistry;
-import com.remodstudios.lumidep.Items.ItemRegistry;
+import com.remodstudios.lumidep.blocks.BlockRegistry;
+import com.remodstudios.lumidep.items.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
