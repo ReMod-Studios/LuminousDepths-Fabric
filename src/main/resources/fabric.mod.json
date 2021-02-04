@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "lumidep",
+  "version": "${version}",
+  "name": "Luminous Depths",
+  "description": "A Project that brings in a whole new level of depth to Minecraft's oceans, (pun intended), from creatures such as anglerfish to giant isopods, new blocks, and strange structures.",
+  "authors": [
+    "LePichu"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "Apache-2.0",
+  "icon": "assets/lumidep/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.remodstudios.lumidep.LuminousDepths"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [
+    "lumidep.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.1",
+    "fabric": "*"
+  }
+}
