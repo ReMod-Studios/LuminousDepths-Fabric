@@ -1,6 +1,6 @@
 package com.remodstudios.lumidep.entities;
 
-public class EntityRegistery {
+public class EntityRegistry {
 
 
     // Methods
