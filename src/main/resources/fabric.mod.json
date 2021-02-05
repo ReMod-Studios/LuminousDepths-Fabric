@@ -15,9 +15,6 @@
   "entrypoints": {
     "main": [
       "com.remodstudios.lumidep.LuminousDepths"
-    ],
-    "rrp:pregen": [
-      "com.remodstudios.lumidep.datagen.LumiDepPreGenEntryPoint"
     ]
   },
   "mixins": [

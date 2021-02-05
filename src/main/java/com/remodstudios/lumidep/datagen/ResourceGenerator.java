@@ -4,7 +4,7 @@ import com.remodstudios.lumidep.LuminousDepths;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.minecraft.util.Identifier;
 
-public interface ResourceGeneratable {
+public interface ResourceGenerator {
     void genResources(RuntimeResourcePack rrp, String id);
 
     default String prefixedPath(String ns, String prefix, String path) {

@@ -2,8 +2,13 @@ package com.remodstudios.lumidep;
 
 import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.items.ItemRegistry;
+import com.remodstudios.lumidep.tags.TagsRegistry;
+import net.devtech.arrp.api.RRPCallback;
+import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -19,8 +24,15 @@ public class LuminousDepths implements ModInitializer {
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing");
-        ItemRegistry.init();
         BlockRegistry.init();
+        ItemRegistry.init();
+
+        RuntimeResourcePack rrp = RuntimeResourcePack.create("lumidep:rrp");
+        ItemRegistry.genResources(rrp);
+        BlockRegistry.genResources(rrp);
+        TagsRegistry.genResources(rrp);
+        rrp.dump(); // debug
+        RRPCallback.EVENT.register(resources -> resources.add(rrp));
     }
 
     public static void log(Level level, String message){

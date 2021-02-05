@@ -1,28 +1,21 @@
-package com.remodstudios.lumidep.blocks;
+package com.remodstudios.lumidep.datagen.generators;
 
 import com.remodstudios.lumidep.LuminousDepths;
-import com.remodstudios.lumidep.datagen.ResourceGeneratable;
+import com.remodstudios.lumidep.datagen.ResourceGenerator;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.loot.JCondition;
 import net.devtech.arrp.json.loot.JEntry;
 import net.devtech.arrp.json.loot.JLootTable;
 import net.devtech.arrp.json.models.JModel;
-import net.minecraft.block.Block;
 
-public class ModBaseBlock extends Block implements ResourceGeneratable {
-    public ModBaseBlock(Settings settings) {
-        super(settings);
-    }
-
-    @Override
+public class SimpleBlockGenerator implements ResourceGenerator {
     public void genResources(RuntimeResourcePack rrp, String id) {
         this.generateBlockState(rrp, id);
         this.generateModel(rrp, id);
         this.generateLootTable(rrp, id);
     }
 
-    // this is only for simple blocks with one default blockstate
     protected void generateBlockState(RuntimeResourcePack rrp, String id) {
         rrp.addBlockState(
             JState.state(
@@ -57,5 +50,4 @@ public class ModBaseBlock extends Block implements ResourceGeneratable {
                 )
         );
     }
-
 }
