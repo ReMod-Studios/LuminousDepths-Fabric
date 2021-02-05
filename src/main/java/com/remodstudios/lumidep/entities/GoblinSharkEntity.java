@@ -16,4 +16,8 @@ public class GoblinSharkEntity extends DolphinEntity {
     protected void initGoals(){
         this.goalSelector.add(0, new TemptGoal(this, 1.2D, Ingredient.fromTag(TagsRegistry.SHINY), false));
     }
+<<<<<<< HEAD
+=======
+    // Pichu: Post Gradle Arc, was here.
+>>>>>>> 8e6658b (GIT BASH YOU FUCKING CUNT)
 }
