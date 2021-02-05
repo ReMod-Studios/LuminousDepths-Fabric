@@ -1,6 +1,7 @@
 package com.remodstudios.lumidep.entities;
 
 import com.remodstudios.lumidep.items.ItemRegistry;
+import com.remodstudios.lumidep.tags.TagsRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.DolphinEntity;
@@ -13,6 +14,6 @@ public class GoblinSharkEntity extends DolphinEntity {
         super(entityType, world);
     }
     protected void initGoals(){
-        this.goalSelector.add(0, new TemptGoal(this, 1.2D, Ingredient.ofItems(ItemRegistry.TUNGSTEN_INGOT, ItemRegistry.TUNGSTEN_NUGGET), false));
+        this.goalSelector.add(0, new TemptGoal(this, 1.2D, Ingredient.fromTag(TagsRegistry.SHINY), false));
     }
 }
