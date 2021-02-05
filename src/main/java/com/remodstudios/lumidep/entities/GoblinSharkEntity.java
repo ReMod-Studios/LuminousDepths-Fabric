@@ -1,11 +1,9 @@
 package com.remodstudios.lumidep.entities;
 
-import com.remodstudios.lumidep.items.ItemRegistry;
 import com.remodstudios.lumidep.tags.TagsRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.DolphinEntity;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.world.World;
 
