@@ -57,9 +57,7 @@ public class BlockRegistry {
     // This right here is the registry money maker
     // It's where all the magic happens
     public static void register() {
-        for (String id : BLOCKS.keySet()) {
-            Registry.register(Registry.BLOCK, LuminousDepths.id(id), BLOCKS.get(id));
-        }
+        BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, LuminousDepths.id(id), block));
     }
 
 }
