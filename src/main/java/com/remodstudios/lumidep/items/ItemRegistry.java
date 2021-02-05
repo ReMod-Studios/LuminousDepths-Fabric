@@ -29,9 +29,9 @@ public class ItemRegistry {
     public static final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP);
 
     // Items begin here
-    public static final ModBaseItem ESCA = new ModBaseItem(BASE_SETTINGS);
-    public static final ModBaseItem TUNGSTEN_INGOT = new ModBaseItem(BASE_SETTINGS);
-    public static final ModBaseItem TUNGSTEN_NUGGET = new ModBaseItem(BASE_SETTINGS);
+    public static final ModBaseItem ESCA = new ModBaseItem();
+    public static final ModBaseItem TUNGSTEN_INGOT = new ModBaseItem();
+    public static final ModBaseItem TUNGSTEN_NUGGET = new ModBaseItem();
 
     static {
         add("esca", ESCA);

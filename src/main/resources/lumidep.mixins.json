@@ -2,9 +2,6 @@
   "required": true,
   "package": "com.remodstudios.lumidep.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
-  "client": [],
-  "server": [],
   "injectors": {
     "defaultRequire": 1
   }
