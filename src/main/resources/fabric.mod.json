@@ -16,8 +16,9 @@
     "main": [
       "com.remodstudios.lumidep.LuminousDepths"
     ],
-    "client": [],
-    "server": []
+    "rrp:pregen": [
+      "com.remodstudios.lumidep.datagen.LumiDepPreGenEntryPoint"
+    ]
   },
   "mixins": [
     "lumidep.mixins.json"
