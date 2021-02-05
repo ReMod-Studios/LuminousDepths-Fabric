@@ -25,8 +25,23 @@ public class BlockRegistry {
     public static final Block DEAD_KELP = new ModBaseBlock(FabricBlockSettings.copyOf(KELP_PLANT));
     public static final Block LUMEROCK = new ModBaseBlock(FabricBlockSettings.copyOf(GLOWSTONE));
 
-    public static final Block ABSTAIN_LUMP = null; //TODO
-    public static final Block GORGE_MASS = null; //TODO
+    public static final Block BRACKWOOD_LOG = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_LOG));
+    public static final Block STRIPPED_BRACKWOOD_LOG = new ModBaseBlock(FabricBlockSettings.copyOf(STRIPPED_OAK_LOG));
+    public static final Block BRACKWOOD_WOOD = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_WOOD));
+    public static final Block STRIPPED_BRACKWOOD_WOOD = new ModBaseBlock(FabricBlockSettings.copyOf(STRIPPED_OAK_WOOD));
+    public static final Block BRACKWOOD_PLANKS = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_PLANKS));
+    public static final Block BRACKWOOD_PRESSURE_PLATE = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_PRESSURE_PLATE));
+    public static final Block BRACKWOOD_BUTTON = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_BUTTON));
+    public static final Block BRACKWOOD_DOOR = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_DOOR));
+    public static final Block BRACKWOOD_TRAPDOOR = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_TRAPDOOR));
+    public static final Block BRACKWOOD_SIGN = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_SIGN));
+    public static final Block BRACKWOOD_SLAB = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_SLAB));
+    public static final Block BRACKWOOD_STAIRS = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_STAIRS));
+    public static final Block BRACKWOOD_FENCE = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_FENCE));
+    public static final Block BRACKWOOD_FENCE_GATE = new ModBaseBlock(FabricBlockSettings.copyOf(OAK_FENCE_GATE));
+
+    public static final Block ABSTAIN_LUMP = null; //TODO: Abstain
+    public static final Block GORGE_MASS = null; //TODO: Gorge
 
     static {
         add("black_sand", BLACK_SAND);
