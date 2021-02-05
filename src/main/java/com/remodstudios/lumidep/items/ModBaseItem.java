@@ -1,7 +1,7 @@
 package com.remodstudios.lumidep.items;
 
-import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGeneratable;
+import com.sun.scenario.Settings;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.models.JModel;
 import net.minecraft.item.Item;
@@ -25,9 +25,9 @@ public class ModBaseItem extends Item implements ResourceGeneratable {
             JModel.model("minecraft:item/generated")
                 .textures(
                     JModel.textures()
-                        .layer0(LuminousDepths.MOD_ID + ":item/" + id)
+                        .layer0(prefixedPath("item", id))
                 ),
-            LuminousDepths.id("item/" + id)
+                prefixedId("item", id)
         );
     }
 }

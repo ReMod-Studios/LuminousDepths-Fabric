@@ -29,9 +29,9 @@ public class ItemRegistry {
     public static final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP);
 
     // Items begin here
-    public static final ModBaseItem ESCA = new ModBaseItem(BASE_SETTINGS);
-    public static final ModBaseItem TUNGSTEN_INGOT = new ModBaseItem(BASE_SETTINGS);
-    public static final ModBaseItem TUNGSTEN_NUGGET = new ModBaseItem(BASE_SETTINGS);
+    public static final ModBaseItem ESCA = new ModBaseItem();
+    public static final ModBaseItem TUNGSTEN_INGOT = new ModBaseItem();
+    public static final ModBaseItem TUNGSTEN_NUGGET = new ModBaseItem();
 
     static {
         add("esca", ESCA);
@@ -75,9 +75,7 @@ public class ItemRegistry {
     // This right here is the registry money maker
     // It's where all the magic happens
     public static void register() {
-        for (String id : ITEMS.keySet()) {
-            Registry.register(Registry.ITEM, LuminousDepths.id(id), ITEMS.get(id));
-        }
+        ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, LuminousDepths.id(id), item));
         // Whangd00dle - In case we want to add fuels or flammable items
         // addFuels();
         // addFlammables();

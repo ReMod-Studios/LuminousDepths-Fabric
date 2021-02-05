@@ -1,6 +1,5 @@
 package com.remodstudios.lumidep.items;
 
-import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGeneratable;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.models.JModel;
@@ -18,8 +17,8 @@ public class ModBlockItem extends BlockItem implements ResourceGeneratable {
 
     protected void generateItemModel(RuntimeResourcePack rrp, String id) {
         rrp.addModel(
-            JModel.model(LuminousDepths.MOD_ID + ":block/" + id),
-            LuminousDepths.id("item/" + id)
+            JModel.model(prefixedPath("block", id)),
+            prefixedId("item", id)
         );
     }
 }

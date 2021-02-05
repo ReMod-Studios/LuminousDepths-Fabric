@@ -24,10 +24,9 @@ public class ModBaseBlock extends Block implements ResourceGeneratable {
 
     // this is only for simple blocks with one default blockstate
     protected void generateBlockState(RuntimeResourcePack rrp, String id) {
-        // TODO im tired of seeing `LuminousDepths.MODID + ":block/" + id` everywhere - leocth
         rrp.addBlockState(
             JState.state(
-                JState.variant().put("", JState.model(LuminousDepths.MOD_ID + ":block/" + id))
+                JState.variant().put("", JState.model(prefixedPath("block", id)))
             ),
             LuminousDepths.id(id)
         );
@@ -37,20 +36,20 @@ public class ModBaseBlock extends Block implements ResourceGeneratable {
         rrp.addModel(
             JModel.model("minecraft:block/cube_all")
                 .textures(JModel.textures()
-                    .var("all", LuminousDepths.MOD_ID + ":block/" + id)
+                    .var("all", prefixedPath("block", id))
                 ),
-            LuminousDepths.id("block/" + id)
+            prefixedId("block", id)
         );
     }
 
     protected void generateLootTable(RuntimeResourcePack rrp, String id) {
         rrp.addLootTable(
-            LuminousDepths.id("blocks/" + id),
+            prefixedId("blocks", id),
             JLootTable.loot("minecraft:block")
                 .pool(JLootTable.pool()
                     .entry(new JEntry()
                         .type("minecraft:item")
-                        .name(LuminousDepths.MOD_ID + ":" + id)
+                        .name(lumidep(id))
                     )
                     .condition(new JCondition("minecraft:survives_explosion"))
                     .rolls(1)
