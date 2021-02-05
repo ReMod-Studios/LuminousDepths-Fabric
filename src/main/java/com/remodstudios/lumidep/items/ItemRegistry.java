@@ -1,7 +1,7 @@
 package com.remodstudios.lumidep.items;
 
-import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.blocks.BlockRegistry;
+import com.remodstudios.lumidep.LuminousDepths;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -40,7 +40,7 @@ public class ItemRegistry {
         add("tungsten_deposit", BlockRegistry.TUNGSTEN_DEPOSIT);
         add("tungsten_ingot", TUNGSTEN_INGOT);
         add("tungsten_nugget", TUNGSTEN_NUGGET);
-
+        // Today my brain is kill because too much confusing code for me -- Pichu
         register();
     }
 
