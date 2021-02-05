@@ -13,6 +13,6 @@ public class GoblinSharkEntity extends DolphinEntity {
         super(entityType, world);
     }
     protected void initGoals(){
-        this.goalSelector.add(0, new TemptGoal(this, 1.2D, Ingredient.ofItems(new ItemConvertible[]{ItemRegistry.TUNGSTEN_INGOT, ItemRegistry.TUNGSTEN_NUGGET}), false));
+        this.goalSelector.add(0, new TemptGoal(this, 1.2D, Ingredient.ofItems(ItemRegistry.TUNGSTEN_INGOT, ItemRegistry.TUNGSTEN_NUGGET), false));
     }
 }
