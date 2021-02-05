@@ -1,6 +1,6 @@
-package com.remodstudios.lumidep.Items;
+package com.remodstudios.lumidep.items;
 
-import com.remodstudios.lumidep.Blocks.BlockRegistry;
+import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.LuminousDepths;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;

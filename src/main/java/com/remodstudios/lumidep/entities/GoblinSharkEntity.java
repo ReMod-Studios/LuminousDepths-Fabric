@@ -1,6 +1,6 @@
-package com.remodstudios.lumidep.Entities;
+package com.remodstudios.lumidep.entities;
 
-import com.remodstudios.lumidep.Items.ItemRegistry;
+import com.remodstudios.lumidep.items.ItemRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.DolphinEntity;

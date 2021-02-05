@@ -1,4 +1,4 @@
-package com.remodstudios.lumidep.Entities;
+package com.remodstudios.lumidep.entities;
 
 public class EntityRegistery {
 

@@ -1,4 +1,4 @@
-package com.remodstudios.lumidep.Blocks;
+package com.remodstudios.lumidep.blocks;
 
 import com.remodstudios.lumidep.LuminousDepths;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
