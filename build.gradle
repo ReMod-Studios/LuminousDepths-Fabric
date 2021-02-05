@@ -14,6 +14,9 @@ repositories {
 	maven {
 		url = 'https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master/'
 	}
+	maven {
+		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
+	}
 }
 
 dependencies {
@@ -24,6 +27,8 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "net.devtech:arrp:${project.arrp_version}"
+
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
 
 }
 
