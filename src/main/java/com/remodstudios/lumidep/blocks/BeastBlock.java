@@ -1,4 +1,4 @@
-package com.remodstudios.lumidep.blocks;
+package com.remodstudios.lumidep.Blocks;
 
 import net.minecraft.block.Block;
 
