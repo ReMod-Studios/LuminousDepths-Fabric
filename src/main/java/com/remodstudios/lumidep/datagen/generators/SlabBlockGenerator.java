@@ -2,6 +2,7 @@ package com.remodstudios.lumidep.datagen.generators;
 
 import com.google.gson.JsonObject;
 import com.remodstudios.lumidep.LuminousDepths;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.loot.JCondition;
@@ -9,6 +10,7 @@ import net.devtech.arrp.json.loot.JEntry;
 import net.devtech.arrp.json.loot.JLootTable;
 import net.devtech.arrp.json.models.JModel;
 import net.devtech.arrp.json.models.JTextures;
+import net.minecraft.util.Identifier;
 
 public class SlabBlockGenerator extends SimpleBlockGenerator {
 
@@ -57,8 +59,10 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
     protected void generateLootTable(RuntimeResourcePack rrp, String id) {
         JsonObject propertyObject = new JsonObject();
         propertyObject.addProperty("type", "double");
+        String itemId = lumidep(id);
 
         // rip my sanity - leocth
+        // @formatter:off
         rrp.addLootTable(
             prefixedId("blocks", id),
             JLootTable.loot("minecraft:block")
@@ -67,12 +71,12 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
                     .bonus(0)
                     .entry(new JEntry()
                         .type("minecraft:item")
-                        .name(lumidep(id))
+                        .name(itemId)
                         .function("minecraft:explosion_decay")
                         .function(
                             JLootTable.function("minecraft:set_count")
                                 .condition(JLootTable.predicate("minecraft:block_state_property")
-                                    .parameter("block", lumidep(id))
+                                    .parameter("block", itemId)
                                     .parameter("properties", propertyObject)
                                 )
                                 .parameter("count", 2)
@@ -81,5 +85,39 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
                     )
                 )
         );
+        // @formatter:on
     }
+    void genLootTableArtifice(ArtificeResourcePack.ServerResourcePackBuilder pack, String id) {
+        JsonObject propertyObject = new JsonObject();
+        propertyObject.addProperty("type", "double");
+        Identifier itemId = LuminousDepths.id(id);
+
+        pack.addLootTable(
+            prefixedId("blocks", id),
+            loot ->
+                loot
+                .pool(pool ->
+                    pool
+                    .rolls(1)
+                    .bonusRolls(0f)
+                    .entry(entry ->
+                        entry
+                        .type(new Identifier("item"))
+                        .name(itemId)
+                        .function(new Identifier("explosion_decay"), f -> {})
+                        .function(new Identifier("set_count"), f ->
+                            f
+                            .condition(new Identifier("block_state_property"), cond ->
+                                cond
+                                .add("block", itemId.toString())
+                                .add("properties", propertyObject)
+                            )
+                            .add("count", 2)
+                            .add("add", false)
+                        )
+                    )
+                )
+        );
+    }
+
 }

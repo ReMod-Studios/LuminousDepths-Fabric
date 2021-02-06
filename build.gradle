@@ -28,6 +28,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	modImplementation "net.devtech:arrp:${project.arrp_version}"
 
+	modImplementation "com.lettuce.fudge:artifice:0.14.6+1.16.5"
+	include "com.lettuce.fudge:artifice:0.14.6+1.16.5"
+
 	// geckolib is currently unavailable for 1.17 :sadtater:
 	//modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
 

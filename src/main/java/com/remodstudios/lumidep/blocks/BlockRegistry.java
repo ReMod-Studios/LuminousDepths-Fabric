@@ -66,7 +66,7 @@ public class BlockRegistry {
             BRACKWOOD_PLANKS = add("brackwood_planks", newCopy(OAK_PLANKS));
             BRACKWOOD_PRESSURE_PLATE = add("brackwood_pressure_plate", newCopy(OAK_PRESSURE_PLATE));
             BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));
-            BRACKWOOD_DOOR = add("brackwood_door", newCopy(OAK_DOOR));
+            BRACKWOOD_DOOR = add("brackwood_door", new ModDoorBlock(FabricBlockSettings.copyOf(OAK_DOOR)));
             BRACKWOOD_TRAPDOOR = add("brackwood_trapdoor", newCopy(OAK_TRAPDOOR));
             BRACKWOOD_SIGN = add("brackwood_sign", new BlockWithEntityGenerator("brackwood_planks"), new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), SignType.WARPED));
             BRACKWOOD_SLAB = add("brackwood_slab", new SlabBlockGenerator("brackwood_planks"), new SlabBlock(FabricBlockSettings.copyOf(OAK_SLAB)));
