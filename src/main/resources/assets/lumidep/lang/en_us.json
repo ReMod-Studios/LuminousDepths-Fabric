@@ -12,5 +12,20 @@
   "block.lumidep.tungsten_block": "Tungsten Block",
   "block.lumidep.coralline_algae": "Coralline Algae",
   "block.lumidep.dead_kelp": "Dead Kelp",
-  "block.lumidep.lumerock": "Lumerock"
+  "block.lumidep.lumerock": "Lumerock",
+
+  "block.lumidep.brackwood_log": "Brackwood Log",
+  "block.lumidep.stripped_brackwood_log": "Stripped Brackwood Log",
+  "block.lumidep.brackwood_wood": "Brackwood Wood",
+  "block.lumidep.stripped_brackwood_wood": "Stripped Brackwood Wood",
+  "block.lumidep.brackwood_planks": "Brackwood Planks",
+  "block.lumidep.brackwood_pressure_plate": "Brackwood Pressure Plate",
+  "block.lumidep.brackwood_button": "Brackwood Button",
+  "block.lumidep.brackwood_door": "Brackwood Door",
+  "block.lumidep.brackwood_trapdoor": "Brackwood Trapdoor",
+  "block.lumidep.brackwood_sign": "Brackwood Sign",
+  "block.lumidep.brackwood_slab": "Brackwood Slab",
+  "block.lumidep.brackwood_stairs": "Brackwood Stairs",
+  "block.lumidep.brackwood_fence": "Brackwood Fence",
+  "block.lumidep.brackwood_fence_gate": "Brackwood Fence Gate"
 }
