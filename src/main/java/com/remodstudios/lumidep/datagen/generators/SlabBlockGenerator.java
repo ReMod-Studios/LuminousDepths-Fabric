@@ -47,7 +47,8 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
         );
     }
 
-    void genLootTableArtifice(ArtificeResourcePack.ServerResourcePackBuilder pack, Identifier id) {
+    @Override
+    protected void generateLootTable(ArtificeResourcePack.ServerResourcePackBuilder pack, Identifier id) {
         JsonObject propertyObject = new JsonObject();
         propertyObject.addProperty("type", "double");
 
