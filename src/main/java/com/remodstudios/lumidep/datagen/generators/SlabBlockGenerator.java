@@ -1,20 +1,19 @@
 package com.remodstudios.lumidep.datagen.generators;
 
 import com.google.gson.JsonObject;
-import com.remodstudios.lumidep.LuminousDepths;
+import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
-import com.swordglowsblue.artifice.api.builder.assets.ModelBuilder;
 import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
-
 public class SlabBlockGenerator extends AbstractParentedBlockGenerator {
 
     public SlabBlockGenerator(Identifier baseBlockId) {
         super(baseBlockId);
     }
 
-    public SlabBlockGenerator(String baseBlockId) {
-        super(baseBlockId);
+    public SlabBlockGenerator(Block baseBlock) {
+        super(baseBlock);
     }
 
     @Override

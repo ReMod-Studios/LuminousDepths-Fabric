@@ -2,9 +2,7 @@ package com.remodstudios.lumidep.blocks;
 
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import com.remodstudios.lumidep.datagen.generators.BlockWithEntityGenerator;
-import com.remodstudios.lumidep.datagen.generators.SlabBlockGenerator;
-import com.remodstudios.lumidep.datagen.generators.WoodBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.*;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -19,8 +17,8 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.Map;
 
-import static net.minecraft.block.Blocks.*;
 import static com.remodstudios.lumidep.datagen.ResourceGenerators.*;
+import static net.minecraft.block.Blocks.*;
 
 public class BlockRegistry {
     public static final Map<Identifier, Pair<Block, RegistrySettings>> BLOCKS = new Object2ObjectLinkedOpenHashMap<>();
@@ -37,14 +35,20 @@ public class BlockRegistry {
     public static final Block STRIPPED_BRACKWOOD_LOG = add("stripped_brackwood_log", RegistrySettings.of(LOG_BLOCK), newLog());
     public static final Block BRACKWOOD_WOOD =
             add("brackwood_wood",
-                RegistrySettings.of(new WoodBlockGenerator("brackwood_log")), newLog()
+                RegistrySettings.of(new WoodBlockGenerator(BRACKWOOD_LOG)), newLog()
             );
     public static final Block STRIPPED_BRACKWOOD_WOOD =
             add("stripped_brackwood_wood",
-                RegistrySettings.of(new WoodBlockGenerator("stripped_brackwood_log")), newLog()
+                RegistrySettings.of(new WoodBlockGenerator(STRIPPED_BRACKWOOD_LOG)), newLog()
             );
     public static final Block BRACKWOOD_PLANKS = add("brackwood_planks", newCopy(OAK_PLANKS));
-    public static final Block BRACKWOOD_PRESSURE_PLATE = add("brackwood_pressure_plate", newCopy(OAK_PRESSURE_PLATE));
+    public static final Block BRACKWOOD_PRESSURE_PLATE =
+            add("brackwood_pressure_plate",
+                RegistrySettings.of(new PressurePlateBlockGenerator(BRACKWOOD_PLANKS)),
+                new ModPressurePlateBlock(
+                    PressurePlateBlock.ActivationRule.EVERYTHING,
+                    FabricBlockSettings.copyOf(OAK_PRESSURE_PLATE))
+            );
     public static final Block BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));
     public static final Block BRACKWOOD_DOOR =
             add("brackwood_door",
@@ -57,15 +61,19 @@ public class BlockRegistry {
                 new ModTrapdoorBlock(FabricBlockSettings.copyOf(OAK_TRAPDOOR)));
     public static final Block BRACKWOOD_SIGN =
             add("brackwood_sign",
-                RegistrySettings.of(new BlockWithEntityGenerator("brackwood_planks")),
+                RegistrySettings.of(new BlockWithEntityGenerator(BRACKWOOD_PLANKS)),
                 new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), SignType.WARPED)
             );
     public static final Block BRACKWOOD_SLAB =
             add("brackwood_slab",
-                RegistrySettings.of(new SlabBlockGenerator("brackwood_planks")),
+                RegistrySettings.of(new SlabBlockGenerator(BRACKWOOD_PLANKS)),
                 new SlabBlock(FabricBlockSettings.copyOf(OAK_SLAB))
             );
-    public static final Block BRACKWOOD_STAIRS = add("brackwood_stairs", newCopy(OAK_STAIRS));
+    public static final Block BRACKWOOD_STAIRS =
+            add("brackwood_stairs",
+                RegistrySettings.of(new StairsBlockGenerator(BRACKWOOD_PLANKS)),
+                new ModStairsBlock(BRACKWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copyOf(OAK_STAIRS))
+            );
     public static final Block BRACKWOOD_FENCE = add("brackwood_fence", newCopy(OAK_FENCE));
     public static final Block BRACKWOOD_FENCE_GATE = add("brackwood_fence_gate", newCopy(OAK_FENCE_GATE));
 
@@ -116,7 +124,7 @@ public class BlockRegistry {
     }
     //endregion
 
-    protected static class RegistrySettings {
+    public static class RegistrySettings {
         public final ResourceGenerator resourceGenerator;
         public final RenderLayer renderLayer;
 

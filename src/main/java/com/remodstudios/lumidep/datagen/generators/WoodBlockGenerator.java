@@ -1,8 +1,8 @@
 package com.remodstudios.lumidep.datagen.generators;
 
-import com.remodstudios.lumidep.LuminousDepths;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 
 public class WoodBlockGenerator extends AbstractParentedBlockGenerator {
@@ -11,10 +11,9 @@ public class WoodBlockGenerator extends AbstractParentedBlockGenerator {
         super(baseBlockId);
     }
 
-    public WoodBlockGenerator(String baseBlockId) {
-        super(baseBlockId);
+    public WoodBlockGenerator(Block baseBlock) {
+        super(baseBlock);
     }
-
 
     @Override
     protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
