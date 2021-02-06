@@ -11,6 +11,7 @@ public class SimpleItemGenerator implements ResourceGenerator {
     }
 
     protected void generateItemModel(RuntimeResourcePack rrp, String id) {
+
         rrp.addModel(
             JModel.model("minecraft:item/generated")
                 .textures(
