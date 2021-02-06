@@ -30,7 +30,7 @@ public class WoodBlockGenerator extends SimpleBlockGenerator {
 
 
     @Override
-    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         Identifier modelId = IdUtils.wrapPath("block/", id);
 
         pack.addBlockState(id, state -> state
@@ -41,7 +41,7 @@ public class WoodBlockGenerator extends SimpleBlockGenerator {
     }
 
     @Override
-    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateModels(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         // it works. who cares?
         Identifier logTexId = (logBlockId == null)
                 ? new Identifier(

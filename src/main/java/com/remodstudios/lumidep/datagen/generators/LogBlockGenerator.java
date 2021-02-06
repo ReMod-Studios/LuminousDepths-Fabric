@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 public class LogBlockGenerator extends SimpleBlockGenerator {
 
     @Override
-    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         Identifier horizontalModelId = IdUtils.wrapPath( "block/", id, "_horizontal");
         Identifier verticalModelId = IdUtils.wrapPath("block/", id);
 
@@ -18,7 +18,7 @@ public class LogBlockGenerator extends SimpleBlockGenerator {
     }
 
     @Override
-    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateModels(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         Identifier sideTexturePath = IdUtils.wrapPath("block/", id);
         Identifier endTexturePath = IdUtils.wrapPath("block/", id, "_top");
 

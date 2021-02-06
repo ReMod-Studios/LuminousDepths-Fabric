@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 
 public class SimpleBlockGenerator implements ResourceGenerator {
 
-    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         pack.addBlockState(id, state -> state
             .variant("", variant -> variant
                 .model(IdUtils.wrapPath("block/", id))
@@ -15,7 +15,7 @@ public class SimpleBlockGenerator implements ResourceGenerator {
         );
     }
 
-    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateModels(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         pack.addBlockModel(id, model -> model
             .parent(new Identifier("block/cube_all"))
             .texture("all", IdUtils.wrapPath("block/", id))
@@ -39,8 +39,8 @@ public class SimpleBlockGenerator implements ResourceGenerator {
 
     @Override
     public void generateAssets(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
-        this.generateBlockState(pack, id);
-        this.generateModel(pack, id);
+        this.generateBlockStates(pack, id);
+        this.generateModels(pack, id);
     }
 
     @Override

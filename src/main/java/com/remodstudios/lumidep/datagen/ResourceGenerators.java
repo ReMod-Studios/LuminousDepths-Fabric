@@ -9,6 +9,7 @@ public final class ResourceGenerators {
     public static final ResourceGenerator BLOCK_ITEM = new BlockItemGenerator();
     public static final ResourceGenerator LOG_BLOCK = new LogBlockGenerator();
     public static final ResourceGenerator WOOD_BLOCK = new WoodBlockGenerator();
+    public static final ResourceGenerator DOOR_BLOCK = new DoorBlockGenerator();
 
     private ResourceGenerators() {}
 }

@@ -2,6 +2,7 @@ package com.remodstudios.lumidep;
 
 import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.items.ItemRegistry;
+import com.remodstudios.lumidep.tags.TagsRegistry;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
 
@@ -28,6 +29,7 @@ public class LuminousDepths implements ModInitializer {
         Artifice.registerDataPack(id("artifice_rp"), pack -> {
             ItemRegistry.generateData(pack);
             BlockRegistry.generateData(pack);
+            TagsRegistry.generateData(pack);
 
             try {
                 pack.dumpResources("artifice.dbg", "data");
@@ -36,13 +38,6 @@ public class LuminousDepths implements ModInitializer {
                 ioe.printStackTrace();
             }
         });
-
-        /*
-        RuntimeResourcePack rrp = RuntimeResourcePack.create("lumidep:rrp");
-        TagsRegistry.genResources(rrp);
-        rrp.dump(); // debug
-        RRPCallback.EVENT.register(resources -> resources.add(rrp));
-         */
     }
 
     public static void log(Level level, String message){

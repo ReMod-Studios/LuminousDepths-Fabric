@@ -18,7 +18,7 @@ public class BlockWithEntityGenerator extends SimpleBlockGenerator {
     }
 
     @Override
-    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateModels(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         pack.addBlockModel(id, model -> model.texture("particle", particleTextureId));
     }
 }

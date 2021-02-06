@@ -21,7 +21,7 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
     }
 
     @Override
-    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder rrp, Identifier id) {
+    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder rrp, Identifier id) {
         Identifier blockPath = IdUtils.wrapPath("block/", id);
 
         rrp.addBlockState(id, state -> state
@@ -32,7 +32,7 @@ public class SlabBlockGenerator extends SimpleBlockGenerator {
     }
 
     @Override
-    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+    protected void generateModels(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         pack.addBlockModel(id, model -> model
             .parent(new Identifier("block/slab"))
             .texture("bottom", baseBlockId)
