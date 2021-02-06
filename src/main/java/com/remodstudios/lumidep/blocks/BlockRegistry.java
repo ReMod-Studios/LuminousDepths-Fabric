@@ -44,7 +44,10 @@ public class BlockRegistry {
                 RegistrySettings.of(DOOR_BLOCK, RenderLayer.getCutout()),
                 new ModDoorBlock(FabricBlockSettings.copyOf(OAK_DOOR))
             );
-    public static final Block BRACKWOOD_TRAPDOOR = add("brackwood_trapdoor", newCopy(OAK_TRAPDOOR));
+    public static final Block BRACKWOOD_TRAPDOOR =
+            add("brackwood_trapdoor",
+                RegistrySettings.of(TRAPDOOR_BLOCK, RenderLayer.getCutout()),
+                new ModTrapdoorBlock(FabricBlockSettings.copyOf(OAK_TRAPDOOR)));
     public static final Block BRACKWOOD_SIGN =
             add("brackwood_sign",
                 RegistrySettings.of(new BlockWithEntityGenerator("brackwood_planks")),

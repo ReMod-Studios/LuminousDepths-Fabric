@@ -3,6 +3,7 @@ package com.remodstudios.lumidep.items;
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
+import com.remodstudios.lumidep.datagen.generators.BlockItemGenerator;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -51,9 +52,9 @@ public class ItemRegistry {
     public static final Item BRACKWOOD_PLANKS           = addBlockItem("brackwood_planks");
     public static final Item BRACKWOOD_PRESSURE_PLATE   = addBlockItem("brackwood_pressure_plate");
     public static final Item BRACKWOOD_BUTTON           = addBlockItem("brackwood_button");
-    public static final Item BRACKWOOD_DOOR             = addBlockItem("brackwood_door");
-    public static final Item BRACKWOOD_TRAPDOOR         = addBlockItem("brackwood_trapdoor");
-    public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign", SIMPLE_ITEM, BlockRegistry.BRACKWOOD_SIGN);
+    public static final Item BRACKWOOD_DOOR             = addBlockItem("brackwood_door", SIMPLE_ITEM);
+    public static final Item BRACKWOOD_TRAPDOOR         = addBlockItem("brackwood_trapdoor", new BlockItemGenerator("brackwood_trapdoor_bottom"));
+    public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign", SIMPLE_ITEM);
     public static final Item BRACKWOOD_SLAB             = addBlockItem("brackwood_slab");
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");
     public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence");
@@ -87,8 +88,12 @@ public class ItemRegistry {
         return item;
     }
 
-    private static BlockItem addBlockItem(String id) {
-        return addBlockItem(id, BLOCK_ITEM, BLOCKS.get(LuminousDepths.id(id)).getLeft(), BASE_SETTINGS);
+    private static BlockItem addBlockItem(String name) {
+        return addBlockItem(name, BLOCK_ITEM);
+    }
+
+    private static BlockItem addBlockItem(String name, ResourceGenerator generator) {
+        return addBlockItem(name, generator, BLOCKS.get(LuminousDepths.id(name)).getLeft(), BASE_SETTINGS);
     }
 
     private static BlockItem addBlockItem(String name, Block block) {

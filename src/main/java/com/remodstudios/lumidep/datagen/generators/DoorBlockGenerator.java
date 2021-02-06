@@ -24,11 +24,9 @@ public class DoorBlockGenerator extends SimpleBlockGenerator {
                         "facing=%s,half=%s,hinge=%s,open=%s",
                         direction.asString(), half.asString(), hinge, open);
 
-                state.variant(varStr, var -> {
-                    var.model(new Identifier(getModelString(blockPath, half, hinge, open)));
-                    var.rotationY(getModelRotation(direction, hinge, open));
-                });
-
+                state.variant(varStr, var -> var
+                    .model(new Identifier(getModelString(blockPath, half, hinge, open)))
+                    .rotationY(getStateYRotation(direction, hinge, open)));
             }
         });
         // @formatter:on
@@ -98,7 +96,7 @@ public class DoorBlockGenerator extends SimpleBlockGenerator {
         return modelStr.toString();
     }
 
-    private static int getModelRotation(Direction direction, DoorHinge hinge, boolean open) {
+    private static int getStateYRotation(Direction direction, DoorHinge hinge, boolean open) {
         int deg = direction.getHorizontal() + 1;
         if (open) {
             if (hinge == DoorHinge.LEFT) deg += 1;
