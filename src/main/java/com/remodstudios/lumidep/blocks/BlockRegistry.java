@@ -2,6 +2,7 @@ package com.remodstudios.lumidep.blocks;
 
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
+import com.remodstudios.lumidep.datagen.generators.BlockWithEntityGenerator;
 import com.remodstudios.lumidep.datagen.generators.SlabBlockGenerator;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.devtech.arrp.api.RuntimeResourcePack;
@@ -9,6 +10,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Pair;
+import net.minecraft.util.SignType;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 
@@ -66,13 +68,14 @@ public class BlockRegistry {
             BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));
             BRACKWOOD_DOOR = add("brackwood_door", newCopy(OAK_DOOR));
             BRACKWOOD_TRAPDOOR = add("brackwood_trapdoor", newCopy(OAK_TRAPDOOR));
-            BRACKWOOD_SIGN = add("brackwood_sign", newCopy(OAK_SIGN));
+            BRACKWOOD_SIGN = add("brackwood_sign", new BlockWithEntityGenerator("brackwood_planks"), new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), SignType.WARPED));
             BRACKWOOD_SLAB = add("brackwood_slab", new SlabBlockGenerator("brackwood_planks"), new SlabBlock(FabricBlockSettings.copyOf(OAK_SLAB)));
             BRACKWOOD_STAIRS = add("brackwood_stairs", newCopy(OAK_STAIRS));
             BRACKWOOD_FENCE = add("brackwood_fence", newCopy(OAK_FENCE));
             BRACKWOOD_FENCE_GATE = add("brackwood_fence_gate", newCopy(OAK_FENCE_GATE));
         }
         catch (Exception e) {
+            // TODO: just for debugging purposes - leocth
             e.printStackTrace();
             throw e;
         }

@@ -1,8 +1,9 @@
 package com.remodstudios.lumidep.items;
 
-import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.LuminousDepths;
+import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
+import com.remodstudios.lumidep.datagen.ResourceGenerators;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -18,7 +19,6 @@ import net.minecraft.util.registry.Registry;
 import java.util.Map;
 
 import static com.remodstudios.lumidep.datagen.ResourceGenerators.*;
-import static net.minecraft.block.Blocks.*;
 import static com.remodstudios.lumidep.blocks.BlockRegistry.*;
 
 
@@ -53,7 +53,7 @@ public class ItemRegistry {
     public static final Item BRACKWOOD_BUTTON           = addBlockItem("brackwood_button");
     public static final Item BRACKWOOD_DOOR             = addBlockItem("brackwood_door");
     public static final Item BRACKWOOD_TRAPDOOR         = addBlockItem("brackwood_trapdoor");
-    public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign");
+    public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign", SIMPLE_ITEM, BlockRegistry.BRACKWOOD_SIGN);
     public static final Item BRACKWOOD_SLAB             = addBlockItem("brackwood_slab");
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");
     public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence");
@@ -77,14 +77,19 @@ public class ItemRegistry {
     }
 
     private static BlockItem addBlockItem(String id) {
-        return add(id, BLOCK_ITEM, BLOCKS.get(id).getLeft(), BASE_SETTINGS);
+        return addBlockItem(id, BLOCK_ITEM, BLOCKS.get(id).getLeft(), BASE_SETTINGS);
     }
 
-    private static <B extends Block> BlockItem add(String name, B block) {
-        return add(name, BLOCK_ITEM, block, BASE_SETTINGS);
+    private static BlockItem addBlockItem(String name, Block block) {
+        return addBlockItem(name, BLOCK_ITEM, block);
     }
 
-    private static <B extends Block> BlockItem add(String name, ResourceGenerator generator, B block, FabricItemSettings settings) {
+    private static BlockItem addBlockItem(String name, ResourceGenerator generator, Block block) {
+        return addBlockItem(name, generator, block, BASE_SETTINGS);
+    }
+
+
+    private static BlockItem addBlockItem(String name, ResourceGenerator generator, Block block, FabricItemSettings settings) {
         BlockItem item = new BlockItem(block, settings);
         ITEMS.put(name, new Pair<>(item, generator));
         return item;
