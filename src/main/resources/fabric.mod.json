@@ -15,6 +15,9 @@
   "entrypoints": {
     "main": [
       "com.remodstudios.lumidep.LuminousDepths"
+    ],
+    "client": [
+      "com.remodstudios.lumidep.client.LuminousDepthsClient"
     ]
   },
   "mixins": [

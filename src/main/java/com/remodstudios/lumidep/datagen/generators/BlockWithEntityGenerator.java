@@ -1,23 +1,24 @@
 package com.remodstudios.lumidep.datagen.generators;
 
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.models.JModel;
+import com.remodstudios.lumidep.LuminousDepths;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.util.Identifier;
 
 public class BlockWithEntityGenerator extends SimpleBlockGenerator {
 
-    private final String particleTexId;
+    private final Identifier particleTextureId;
 
-    public BlockWithEntityGenerator(String particleTexId) {
-        this.particleTexId = prefixedPath("block", particleTexId);
+    public BlockWithEntityGenerator(Identifier particleTextureId) {
+        this.particleTextureId = IdUtils.wrapPath("bloc/k", particleTextureId);
+    }
+
+    public BlockWithEntityGenerator(String particleTextureId) {
+        this(LuminousDepths.id(particleTextureId));
     }
 
     @Override
-    protected void generateModel(RuntimeResourcePack rrp, String id) {
-        rrp.addModel(
-            JModel.model()
-                .textures(JModel.textures()
-                    .particle(particleTexId)),
-            prefixedId("block", id)
-        );
+    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        pack.addBlockModel(id, model -> model.texture("particle", particleTextureId));
     }
 }

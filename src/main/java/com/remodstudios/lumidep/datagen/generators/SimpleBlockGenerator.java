@@ -1,53 +1,50 @@
 package com.remodstudios.lumidep.datagen.generators;
 
-import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.blockstate.JState;
-import net.devtech.arrp.json.loot.JCondition;
-import net.devtech.arrp.json.loot.JEntry;
-import net.devtech.arrp.json.loot.JLootTable;
-import net.devtech.arrp.json.models.JModel;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.util.Identifier;
 
 public class SimpleBlockGenerator implements ResourceGenerator {
-    public void genResources(RuntimeResourcePack rrp, String id) {
-        this.generateBlockState(rrp, id);
-        this.generateModel(rrp, id);
-        this.generateLootTable(rrp, id);
-    }
 
-    protected void generateBlockState(RuntimeResourcePack rrp, String id) {
-        rrp.addBlockState(
-            JState.state(
-                JState.variant().put("", JState.model(prefixedPath("block", id)))
-            ),
-            LuminousDepths.id(id)
+    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        pack.addBlockState(id, state -> state
+            .variant("", variant -> variant
+                .model(IdUtils.wrapPath("block/", id))
+            )
         );
     }
 
-    protected void generateModel(RuntimeResourcePack rrp, String id) {
-        rrp.addModel(
-            JModel.model("minecraft:block/cube_all")
-                .textures(JModel.textures()
-                    .var("all", prefixedPath("block", id))
-                ),
-            prefixedId("block", id)
+    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        pack.addBlockModel(id, model -> model
+            .parent(new Identifier("block/cube_all"))
+            .texture("all", IdUtils.wrapPath("block/", id))
         );
     }
 
-    protected void generateLootTable(RuntimeResourcePack rrp, String id) {
-        rrp.addLootTable(
-            prefixedId("blocks", id),
-            JLootTable.loot("minecraft:block")
-                .pool(JLootTable.pool()
-                    .entry(new JEntry()
-                        .type("minecraft:item")
-                        .name(lumidep(id))
-                    )
-                    .condition(new JCondition("minecraft:survives_explosion"))
-                    .rolls(1)
-                    .bonus(0)
+    protected void generateLootTable(ArtificeResourcePack.ServerResourcePackBuilder pack, Identifier id) {
+        pack.addLootTable(IdUtils.wrapPath("blocks/", id), loot -> loot
+            .type(new Identifier("block"))
+            .pool(pool -> pool
+                .rolls(1)
+                .bonusRolls(0f)
+                .entry(entry -> entry
+                    .type(new Identifier("item"))
+                    .name(id)
                 )
+                .condition(new Identifier("survives_explosion"), c -> {})
+            )
         );
+    }
+
+    @Override
+    public void generateAssets(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        this.generateBlockState(pack, id);
+        this.generateModel(pack, id);
+    }
+
+    @Override
+    public void generateData(ArtificeResourcePack.ServerResourcePackBuilder pack, Identifier id) {
+        this.generateLootTable(pack, id);
     }
 }

@@ -1,37 +1,58 @@
 package com.remodstudios.lumidep.datagen.generators;
 
 import com.remodstudios.lumidep.LuminousDepths;
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.blockstate.JState;
-import net.devtech.arrp.json.models.JModel;
-import net.devtech.arrp.json.models.JTextures;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.util.Identifier;
 
 public class WoodBlockGenerator extends SimpleBlockGenerator {
+
+    /*
+     * the id of the corresponding log block
+     * used for textures
+     */
+    private final Identifier logBlockId;
+
+    public WoodBlockGenerator(Identifier logBlockId) {
+        this.logBlockId = IdUtils.wrapPath("block/", logBlockId);
+    }
+
+    public WoodBlockGenerator(String logBlockId) {
+        this(LuminousDepths.id(logBlockId));
+    }
+
+    /**
+     * guesses the log id by removing `wood` at the end of the id and appending `log`
+     */
+    public WoodBlockGenerator() {
+        this.logBlockId = null;
+    }
+
+
     @Override
-    protected void generateBlockState(RuntimeResourcePack rrp, String id) {
-        JState state = JState.state();
-        String basePath = prefixedPath("block", id);
+    protected void generateBlockState(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        Identifier modelId = IdUtils.wrapPath("block/", id);
 
-        state.add(JState.variant()
-            .put("axis=x", JState.model(basePath).x(90).y(90))
-            .put("axis=z", JState.model(basePath).x(90))
-            .put("axis=y", JState.model(basePath))
+        pack.addBlockState(id, state -> state
+            .variant("axis=x", v -> v.model(modelId).rotationX(90).rotationY(90))
+            .variant("axis=z", v -> v.model(modelId).rotationX(90))
+            .variant("axis=y", v -> v.model(modelId))
         );
-
-        rrp.addBlockState(state, LuminousDepths.id(id));
     }
 
     @Override
-    protected void generateModel(RuntimeResourcePack rrp, String id) {
-        String basePath = prefixedPath("block", id.replaceFirst("wood$", "log"));
+    protected void generateModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        // it works. who cares?
+        Identifier logTexId = (logBlockId == null)
+                ? new Identifier(
+                        id.getNamespace(),
+                        "block/" + id.getPath().replaceAll("wood$", "log"))
+                : logBlockId;
 
-        rrp.addModel(
-            JModel.model("minecraft:block/cube_column")
-                .textures(JModel.textures()
-                    .var("end", basePath)
-                    .var("side", basePath)
-            ),
-            prefixedId("block", id)
+        pack.addBlockModel(id, model -> model
+            .parent(new Identifier("block/cube_column"))
+            .texture("end", logTexId)
+            .texture("side", logTexId)
         );
     }
 }

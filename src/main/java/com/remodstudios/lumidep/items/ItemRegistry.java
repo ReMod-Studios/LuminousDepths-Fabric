@@ -3,9 +3,8 @@ package com.remodstudios.lumidep.items;
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import com.remodstudios.lumidep.datagen.ResourceGenerators;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
-import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -13,6 +12,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
 import net.minecraft.util.registry.Registry;
 
@@ -23,7 +23,7 @@ import static com.remodstudios.lumidep.blocks.BlockRegistry.*;
 
 
 public class ItemRegistry {
-    private static final Map<String, Pair<Item, ResourceGenerator>> ITEMS = new Object2ObjectLinkedOpenHashMap<>();
+    private static final Map<Identifier, Pair<Item, ResourceGenerator>> ITEMS = new Object2ObjectLinkedOpenHashMap<>();
 
     private static final ItemGroup GROUP
             = FabricItemGroupBuilder.build(
@@ -33,7 +33,7 @@ public class ItemRegistry {
 
     private static final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP);
 
-    // Items begin here
+    //region Item declarations
     public static final Item ESCA = add("esca", new Item(BASE_SETTINGS));
     public static final Item TUNGSTEN_INGOT = add("tungsten_ingot", new Item(BASE_SETTINGS));
     public static final Item TUNGSTEN_NUGGET = add("tungsten_nugget", new Item(BASE_SETTINGS));
@@ -58,26 +58,37 @@ public class ItemRegistry {
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");
     public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence");
     public static final Item BRACKWOOD_FENCE_GATE       = addBlockItem("brackwood_fence_gate");
+    //endregion
 
     public static void init() {
         register();
     }
 
-    public static void genResources(RuntimeResourcePack rrp) {
-        ITEMS.forEach((id, pair) -> pair.getRight().genResources(rrp, id));
+    public static void register() {
+        ITEMS.forEach((id, pair) -> Registry.register(Registry.ITEM, id, pair.getLeft()));
     }
 
+    //region Datagen methods
+    public static void generateAssets(ArtificeResourcePack.ClientResourcePackBuilder pack) {
+        ITEMS.forEach((id, pair) -> pair.getRight().generateAssets(pack, id));
+    }
+
+    public static void generateData(ArtificeResourcePack.ServerResourcePackBuilder pack) {
+        ITEMS.forEach((id, pair) -> pair.getRight().generateData(pack, id));
+    }
+    //endregion
+    //region Registry methods
     private static <I extends Item> I add(String name, I item) {
         return add(name,  SIMPLE_ITEM, item);
     }
 
     private static <I extends Item> I add(String name, ResourceGenerator generator, I item) {
-        ITEMS.put(name, new Pair<>(item, generator));
+        ITEMS.put(LuminousDepths.id(name), new Pair<>(item, generator));
         return item;
     }
 
     private static BlockItem addBlockItem(String id) {
-        return addBlockItem(id, BLOCK_ITEM, BLOCKS.get(id).getLeft(), BASE_SETTINGS);
+        return addBlockItem(id, BLOCK_ITEM, BLOCKS.get(LuminousDepths.id(id)).getLeft(), BASE_SETTINGS);
     }
 
     private static BlockItem addBlockItem(String name, Block block) {
@@ -91,11 +102,9 @@ public class ItemRegistry {
 
     private static BlockItem addBlockItem(String name, ResourceGenerator generator, Block block, FabricItemSettings settings) {
         BlockItem item = new BlockItem(block, settings);
-        ITEMS.put(name, new Pair<>(item, generator));
+        ITEMS.put(LuminousDepths.id(name), new Pair<>(item, generator));
         return item;
     }
+    //endregion
 
-    public static void register() {
-        ITEMS.forEach((id, pair) -> Registry.register(Registry.ITEM, LuminousDepths.id(id), pair.getLeft()));
-    }
 }

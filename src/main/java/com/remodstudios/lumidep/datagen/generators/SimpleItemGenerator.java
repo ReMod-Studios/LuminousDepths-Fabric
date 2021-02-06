@@ -1,23 +1,26 @@
 package com.remodstudios.lumidep.datagen.generators;
 
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.json.models.JModel;
+import com.swordglowsblue.artifice.api.ArtificeResourcePack;
+import com.swordglowsblue.artifice.api.util.IdUtils;
+import net.minecraft.util.Identifier;
 
 public class SimpleItemGenerator implements ResourceGenerator {
-    @Override
-    public void genResources(RuntimeResourcePack rrp, String id) {
-        this.generateItemModel(rrp, id);
+
+    protected void generateItemModel(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        pack.addItemModel(id, model -> model
+            .parent(new Identifier("item/generated"))
+            .texture("layer0", IdUtils.wrapPath("item/", id))
+        );
     }
 
-    protected void generateItemModel(RuntimeResourcePack rrp, String id) {
+    @Override
+    public void generateAssets(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
+        this.generateItemModel(pack, id);
+    }
 
-        rrp.addModel(
-            JModel.model("minecraft:item/generated")
-                .textures(
-                    JModel.textures().layer0(prefixedPath("item", id))
-                ),
-            prefixedId("item", id)
-        );
+    @Override
+    public void generateData(ArtificeResourcePack.ServerResourcePackBuilder pack, Identifier id) {
+
     }
 }
