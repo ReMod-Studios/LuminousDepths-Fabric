@@ -59,10 +59,10 @@ public class BlockRegistry {
             DEAD_KELP = add("dead_kelp", newCopy(KELP_PLANT));
             LUMEROCK = add("lumerock", newCopy(GLOWSTONE));
 
-            BRACKWOOD_LOG = add("brackwood_log", LOG_BLOCK, new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)));
-            STRIPPED_BRACKWOOD_LOG = add("stripped_brackwood_log", LOG_BLOCK, new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)));
-            BRACKWOOD_WOOD = add("brackwood_wood", newCopy(OAK_WOOD));
-            STRIPPED_BRACKWOOD_WOOD = add("stripped_brackwood_wood", newCopy(STRIPPED_OAK_WOOD));
+            BRACKWOOD_LOG = add("brackwood_log", LOG_BLOCK, newLog());
+            STRIPPED_BRACKWOOD_LOG = add("stripped_brackwood_log", LOG_BLOCK, newLog());
+            BRACKWOOD_WOOD = add("brackwood_wood", WOOD_BLOCK, newLog());
+            STRIPPED_BRACKWOOD_WOOD = add("stripped_brackwood_wood", WOOD_BLOCK, newLog());
             BRACKWOOD_PLANKS = add("brackwood_planks", newCopy(OAK_PLANKS));
             BRACKWOOD_PRESSURE_PLATE = add("brackwood_pressure_plate", newCopy(OAK_PRESSURE_PLATE));
             BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));
@@ -103,5 +103,8 @@ public class BlockRegistry {
 
     private static Block newCopy(Block block) {
         return new Block(FabricBlockSettings.copyOf(block));
+    }
+    private static Block newLog() {
+        return new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD));
     }
 }
