@@ -4,6 +4,7 @@ import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
 import com.remodstudios.lumidep.datagen.generators.BlockWithEntityGenerator;
 import com.remodstudios.lumidep.datagen.generators.SlabBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.WoodBlockGenerator;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -32,10 +33,16 @@ public class BlockRegistry {
     public static final Block DEAD_KELP = add("dead_kelp", newCopy(KELP_PLANT));
     public static final Block LUMEROCK = add("lumerock", newCopy(GLOWSTONE));
 
-    public static final Block BRACKWOOD_LOG =add("brackwood_log", RegistrySettings.of(LOG_BLOCK), newLog());
+    public static final Block BRACKWOOD_LOG = add("brackwood_log", RegistrySettings.of(LOG_BLOCK), newLog());
     public static final Block STRIPPED_BRACKWOOD_LOG = add("stripped_brackwood_log", RegistrySettings.of(LOG_BLOCK), newLog());
-    public static final Block BRACKWOOD_WOOD = add("brackwood_wood", RegistrySettings.of(WOOD_BLOCK), newLog());
-    public static final Block STRIPPED_BRACKWOOD_WOOD = add("stripped_brackwood_wood", RegistrySettings.of(WOOD_BLOCK), newLog());
+    public static final Block BRACKWOOD_WOOD =
+            add("brackwood_wood",
+                RegistrySettings.of(new WoodBlockGenerator("brackwood_log")), newLog()
+            );
+    public static final Block STRIPPED_BRACKWOOD_WOOD =
+            add("stripped_brackwood_wood",
+                RegistrySettings.of(new WoodBlockGenerator("stripped_brackwood_log")), newLog()
+            );
     public static final Block BRACKWOOD_PLANKS = add("brackwood_planks", newCopy(OAK_PLANKS));
     public static final Block BRACKWOOD_PRESSURE_PLATE = add("brackwood_pressure_plate", newCopy(OAK_PRESSURE_PLATE));
     public static final Block BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));

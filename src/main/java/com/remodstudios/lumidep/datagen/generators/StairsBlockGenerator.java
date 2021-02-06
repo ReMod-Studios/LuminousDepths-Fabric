@@ -3,17 +3,16 @@ package com.remodstudios.lumidep.datagen.generators;
 import com.google.gson.JsonObject;
 import com.remodstudios.lumidep.LuminousDepths;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
-import com.swordglowsblue.artifice.api.builder.assets.ModelBuilder;
 import com.swordglowsblue.artifice.api.util.IdUtils;
 import net.minecraft.util.Identifier;
 
-public class SlabBlockGenerator extends AbstractParentedBlockGenerator {
+public class StairsBlockGenerator extends AbstractParentedBlockGenerator {
 
-    public SlabBlockGenerator(Identifier baseBlockId) {
+    public StairsBlockGenerator(Identifier baseBlockId) {
         super(baseBlockId);
     }
 
-    public SlabBlockGenerator(String baseBlockId) {
+    public StairsBlockGenerator(String baseBlockId) {
         super(baseBlockId);
     }
 
