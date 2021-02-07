@@ -2,8 +2,8 @@ package com.remodstudios.lumidep.items;
 
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.blocks.BlockRegistry;
-import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import com.remodstudios.lumidep.datagen.generators.item.BlockItemGenerator;
+import com.remodstudios.yarnandneedles.datagen.ResourceGenerator;
+import com.remodstudios.yarnandneedles.datagen.generators.item.BlockItemGenerator;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -16,7 +16,7 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.Map;
 
-import static com.remodstudios.lumidep.datagen.ResourceGenerators.*;
+import static com.remodstudios.yarnandneedles.datagen.ResourceGenerators.*;
 import static com.remodstudios.lumidep.blocks.BlockRegistry.*;
 
 
@@ -48,9 +48,11 @@ public class ItemRegistry {
     public static final Item STRIPPED_BRACKWOOD_WOOD    = addBlockItem("stripped_brackwood_wood");
     public static final Item BRACKWOOD_PLANKS           = addBlockItem("brackwood_planks");
     public static final Item BRACKWOOD_PRESSURE_PLATE   = addBlockItem("brackwood_pressure_plate");
-    public static final Item BRACKWOOD_BUTTON           = addBlockItem("brackwood_button", new BlockItemGenerator("brackwood_button_inventory"));
+    public static final Item BRACKWOOD_BUTTON
+            = addBlockItem("brackwood_button", new BlockItemGenerator(LuminousDepths.id("brackwood_button_inventory")));
     public static final Item BRACKWOOD_DOOR             = addBlockItem("brackwood_door", SIMPLE_ITEM);
-    public static final Item BRACKWOOD_TRAPDOOR         = addBlockItem("brackwood_trapdoor", new BlockItemGenerator("brackwood_trapdoor_bottom"));
+    public static final Item BRACKWOOD_TRAPDOOR
+            = addBlockItem("brackwood_trapdoor", new BlockItemGenerator(LuminousDepths.id("brackwood_trapdoor_bottom")));
     public static final Item BRACKWOOD_SIGN
             = add("brackwood_sign",
                     SIMPLE_ITEM,
@@ -58,7 +60,8 @@ public class ItemRegistry {
             );
     public static final Item BRACKWOOD_SLAB             = addBlockItem("brackwood_slab");
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");
-    public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence", new BlockItemGenerator("brackwood_fence_inventory"));
+    public static final Item BRACKWOOD_FENCE
+            = addBlockItem("brackwood_fence", new BlockItemGenerator(LuminousDepths.id("brackwood_fence_inventory")));
     public static final Item BRACKWOOD_FENCE_GATE       = addBlockItem("brackwood_fence_gate");
     //endregion
 
@@ -79,6 +82,7 @@ public class ItemRegistry {
         ITEMS.forEach((id, pair) -> pair.getRight().generateData(pack, id));
     }
     //endregion
+
     //region Registry methods
     private static <I extends Item> I add(String name, I item) {
         return add(name,  SIMPLE_ITEM, item);

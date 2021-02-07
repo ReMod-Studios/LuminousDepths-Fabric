@@ -14,6 +14,7 @@ repositories {
 	maven {
 		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
 	}
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -26,6 +27,8 @@ dependencies {
 
 	modImplementation "com.lettuce.fudge:artifice:$artifice_version"
 	include "com.lettuce.fudge:artifice:$artifice_version}"
+
+	modImplementation 'com.github.ReMod-Studios:Yarn-And-Needles:e95dccbca8:dev'
 
 	// geckolib is currently unavailable for 1.17 :sadtater:
 	//modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
