@@ -66,7 +66,7 @@ public class BlockRegistry {
     public static final Block BRACKWOOD_SIGN =
             add("brackwood_sign",
                 RegistrySettings.of(new BlockWithEntityGenerator(BRACKWOOD_PLANKS)),
-                new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), SignType.WARPED)
+                new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), ModSignType.BRACKWOOD)
             );
     public static final Block BRACKWOOD_SLAB =
             add("brackwood_slab",
