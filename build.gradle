@@ -14,7 +14,9 @@ repositories {
 	maven {
 		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
 	}
-	maven { url 'https://jitpack.io' }
+	maven {
+		url = 'https://jitpack.io'
+	}
 }
 
 dependencies {
@@ -28,8 +30,9 @@ dependencies {
 	modImplementation "com.github.ReMod-Studios:Yarn-And-Needles:$ynn_version:dev"
 	include "com.github.ReMod-Studios:Yarn-And-Needles:$ynn_version:dev"
 
-	// geckolib is currently unavailable for 1.17 :sadtater:
-	//modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
+	// official geckolib is currently unavailable for 1.17 :sadtater:
+	// modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
+	modImplementation "com.github.hYdos:geckolib:429f94675a"
 
 }
 
