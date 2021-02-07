@@ -78,7 +78,11 @@ public class BlockRegistry {
                 RegistrySettings.of(new StairsBlockGenerator(BRACKWOOD_PLANKS)),
                 new ModStairsBlock(BRACKWOOD_PLANKS.getDefaultState(), FabricBlockSettings.copyOf(OAK_STAIRS))
             );
-    public static final Block BRACKWOOD_FENCE = add("brackwood_fence", newCopy(OAK_FENCE));
+    public static final Block BRACKWOOD_FENCE =
+            add("brackwood_fence",
+                RegistrySettings.of(new FenceBlockGenerator(BRACKWOOD_PLANKS)),
+                new FenceBlock(FabricBlockSettings.copyOf(OAK_FENCE))
+            );
     public static final Block BRACKWOOD_FENCE_GATE = add("brackwood_fence_gate", newCopy(OAK_FENCE_GATE));
 
 

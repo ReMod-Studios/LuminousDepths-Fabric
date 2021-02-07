@@ -56,7 +56,7 @@ public class ItemRegistry {
     public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign", SIMPLE_ITEM);
     public static final Item BRACKWOOD_SLAB             = addBlockItem("brackwood_slab");
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");
-    public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence");
+    public static final Item BRACKWOOD_FENCE            = addBlockItem("brackwood_fence", new BlockItemGenerator("brackwood_fence_inventory"));
     public static final Item BRACKWOOD_FENCE_GATE       = addBlockItem("brackwood_fence_gate");
     //endregion
 
