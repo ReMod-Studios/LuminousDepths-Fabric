@@ -78,11 +78,11 @@ public class BlockRegistry {
                 new ModTrapdoorBlock(FabricBlockSettings.copyOf(OAK_TRAPDOOR)));
         BRACKWOOD_SIGN = add("brackwood_sign",
                 RegistrySettings.of(new BlockWithEntityGenerator(brackwoodPlanksId)),
-                new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), LumidepSignType.BRACKWOOD)
+                new BrackwoodSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
         BRACKWOOD_WALL_SIGN = add("brackwood_wall_sign",
                 RegistrySettings.of(new BlockWithEntityGenerator(brackwoodPlanksId)),
-                new WallSignBlock(FabricBlockSettings.copyOf(OAK_SIGN), LumidepSignType.BRACKWOOD)
+                new BrackwoodWallSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
         BRACKWOOD_SLAB = add("brackwood_slab",
                 RegistrySettings.of(new SlabBlockGenerator(brackwoodPlanksId)),
