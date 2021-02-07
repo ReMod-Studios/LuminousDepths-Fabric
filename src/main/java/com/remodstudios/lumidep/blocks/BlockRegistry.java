@@ -83,7 +83,11 @@ public class BlockRegistry {
                 RegistrySettings.of(new FenceBlockGenerator(BRACKWOOD_PLANKS)),
                 new FenceBlock(FabricBlockSettings.copyOf(OAK_FENCE))
             );
-    public static final Block BRACKWOOD_FENCE_GATE = add("brackwood_fence_gate", newCopy(OAK_FENCE_GATE));
+    public static final Block BRACKWOOD_FENCE_GATE =
+            add("brackwood_fence_gate",
+                RegistrySettings.of(new FenceGateBlockGenerator(BRACKWOOD_PLANKS)),
+                new FenceGateBlock(FabricBlockSettings.copyOf(OAK_FENCE_GATE))
+            );
 
 
     public static final Block ABSTAIN_LUMP = null; //TODO: Abstain
