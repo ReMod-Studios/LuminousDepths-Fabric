@@ -68,6 +68,11 @@ public class BlockRegistry {
                 RegistrySettings.of(new BlockWithEntityGenerator(BRACKWOOD_PLANKS)),
                 new SignBlock(FabricBlockSettings.copyOf(OAK_SIGN), ModSignType.BRACKWOOD)
             );
+    public static final Block BRACKWOOD_WALL_SIGN =
+            add("brackwood_wall_sign",
+                RegistrySettings.of(new BlockWithEntityGenerator(BRACKWOOD_PLANKS)),
+                new WallSignBlock(FabricBlockSettings.copyOf(OAK_SIGN), ModSignType.BRACKWOOD)
+            );
     public static final Block BRACKWOOD_SLAB =
             add("brackwood_slab",
                 RegistrySettings.of(new SlabBlockGenerator(BRACKWOOD_PLANKS)),
