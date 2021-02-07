@@ -56,7 +56,7 @@ public class ItemRegistry {
     public static final Item BRACKWOOD_SIGN
             = add("brackwood_sign",
                     SIMPLE_ITEM,
-                    new SignItem(BASE_SETTINGS, BlockRegistry.BRACKWOOD_SIGN, BRACKWOOD_WALL_SIGN)
+                    new BrackwoodSignItem(BASE_SETTINGS, BlockRegistry.BRACKWOOD_SIGN, BRACKWOOD_WALL_SIGN)
             );
     public static final Item BRACKWOOD_SLAB             = addBlockItem("brackwood_slab");
     public static final Item BRACKWOOD_STAIRS           = addBlockItem("brackwood_stairs");

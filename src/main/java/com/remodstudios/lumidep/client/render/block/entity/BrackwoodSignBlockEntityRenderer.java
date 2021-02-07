@@ -1,12 +1,13 @@
 package com.remodstudios.lumidep.client.render.block.entity;
 
-import com.google.common.collect.ImmutableMap;
+import com.remodstudios.lumidep.blocks.BrackwoodSignBlockCommon;
 import com.remodstudios.lumidep.blocks.LumidepSignType;
+import com.remodstudios.lumidep.blocks.MarkingType;
 import com.remodstudios.lumidep.blocks.entities.BrackwoodSignBlockEntity;
+import com.remodstudios.lumidep.util.SpriteIdentifierUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SignBlock;
 import net.minecraft.block.WallSignBlock;
-import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
@@ -21,6 +22,7 @@ import net.minecraft.util.math.Vec3f;
 public class BrackwoodSignBlockEntityRenderer implements BlockEntityRenderer<BrackwoodSignBlockEntity> {
 
     private static final SignType SIGN_TYPE = LumidepSignType.BRACKWOOD;
+    private static final SpriteIdentifier spId = SpriteIdentifierUtil.makeSignTexture(SIGN_TYPE);
     private final SignBlockEntityRenderer.SignModel signModel;
 
     public BrackwoodSignBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
@@ -43,12 +45,14 @@ public class BrackwoodSignBlockEntityRenderer implements BlockEntityRenderer<Bra
             matrices.translate(0.0D, -0.3125D, -0.4375D);
             signModel.stick.visible = false;
         }
+        MarkingType marking = blockState.get(BrackwoodSignBlockCommon.MARKING);
+        SpriteIdentifier markingSpId = SpriteIdentifierUtil.makeMarkingTexture(marking);
 
-        matrices.push();
         matrices.scale(0.6666667F, -0.6666667F, -0.6666667F);
-        SpriteIdentifier spriteIdentifier = TexturedRenderLayers.getSignTextureId(SIGN_TYPE);
-        VertexConsumer vertexConsumer = spriteIdentifier.getVertexConsumer(vertexConsumers, signModel::getLayer);
+        VertexConsumer vertexConsumer = spId.getVertexConsumer(vertexConsumers, signModel::getLayer);
+        VertexConsumer vertexConsumer2 = markingSpId.getVertexConsumer(vertexConsumers, signModel::getLayer);
         signModel.root.render(matrices, vertexConsumer, light, overlay);
+        signModel.root.render(matrices, vertexConsumer2, light, overlay);
         matrices.pop();
     }
 }

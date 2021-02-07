@@ -4,7 +4,6 @@ import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.yarnandneedles.blocks.*;
 import com.remodstudios.yarnandneedles.datagen.ResourceGenerator;
 import com.remodstudios.yarnandneedles.datagen.generators.block.*;
-import com.remodstudios.yarnandneedles.datagen.generators.block.PressurePlateBlockGenerator;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -81,6 +80,7 @@ public class BlockRegistry {
                 new BrackwoodSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
         BRACKWOOD_WALL_SIGN = add("brackwood_wall_sign",
+                // FIXME: use brackwood_sign when creating loot table
                 RegistrySettings.of(new BlockWithEntityGenerator(brackwoodPlanksId)),
                 new BrackwoodWallSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
