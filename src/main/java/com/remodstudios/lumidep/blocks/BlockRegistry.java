@@ -49,7 +49,11 @@ public class BlockRegistry {
                     PressurePlateBlock.ActivationRule.EVERYTHING,
                     FabricBlockSettings.copyOf(OAK_PRESSURE_PLATE))
             );
-    public static final Block BRACKWOOD_BUTTON = add("brackwood_button", newCopy(OAK_BUTTON));
+    public static final Block BRACKWOOD_BUTTON =
+            add("brackwood_button",
+                RegistrySettings.of(new ButtonBlockGenerator(BRACKWOOD_PLANKS)),
+                new ModWoodenButtonBlock(FabricBlockSettings.copyOf(OAK_BUTTON))
+            );
     public static final Block BRACKWOOD_DOOR =
             add("brackwood_door",
                 RegistrySettings.of(DOOR_BLOCK, RenderLayer.getCutout()),

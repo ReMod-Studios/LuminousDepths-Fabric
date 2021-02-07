@@ -50,7 +50,7 @@ public class ItemRegistry {
     public static final Item STRIPPED_BRACKWOOD_WOOD    = addBlockItem("stripped_brackwood_wood");
     public static final Item BRACKWOOD_PLANKS           = addBlockItem("brackwood_planks");
     public static final Item BRACKWOOD_PRESSURE_PLATE   = addBlockItem("brackwood_pressure_plate");
-    public static final Item BRACKWOOD_BUTTON           = addBlockItem("brackwood_button");
+    public static final Item BRACKWOOD_BUTTON           = addBlockItem("brackwood_button", new BlockItemGenerator("brackwood_button_inventory"));
     public static final Item BRACKWOOD_DOOR             = addBlockItem("brackwood_door", SIMPLE_ITEM);
     public static final Item BRACKWOOD_TRAPDOOR         = addBlockItem("brackwood_trapdoor", new BlockItemGenerator("brackwood_trapdoor_bottom"));
     public static final Item BRACKWOOD_SIGN             = addBlockItem("brackwood_sign", SIMPLE_ITEM);

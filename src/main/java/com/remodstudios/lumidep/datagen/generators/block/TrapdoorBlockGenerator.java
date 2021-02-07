@@ -13,11 +13,11 @@ public class TrapdoorBlockGenerator extends SimpleBlockGenerator {
     private static final String[] VARIANT_SUFFIXES = {"_bottom", "_top", "_open"};
 
     @Override
-    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder rrp, Identifier id) {
+    protected void generateBlockStates(ArtificeResourcePack.ClientResourcePackBuilder pack, Identifier id) {
         Identifier blockPath = IdUtils.wrapPath("block/", id);
 
         // @formatter:off
-        rrp.addBlockState(id, state -> {
+        pack.addBlockState(id, state -> {
             for (Direction facing : TrapdoorBlock.FACING.getValues())
             for (BlockHalf half : TrapdoorBlock.HALF.getValues())
             for (boolean open : TrapdoorBlock.OPEN.getValues()) {
