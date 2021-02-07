@@ -22,7 +22,7 @@ import net.minecraft.util.math.Vec3f;
 public class BrackwoodSignBlockEntityRenderer implements BlockEntityRenderer<BrackwoodSignBlockEntity> {
 
     private static final SignType SIGN_TYPE = LumidepSignType.BRACKWOOD;
-    private static final SpriteIdentifier spId = SpriteIdentifierUtil.makeSignTexture(SIGN_TYPE);
+    private static final SpriteIdentifier SP_ID = SpriteIdentifierUtil.makeSignTexture(SIGN_TYPE);
     private final SignBlockEntityRenderer.SignModel signModel;
 
     public BrackwoodSignBlockEntityRenderer(BlockEntityRendererFactory.Context ctx) {
@@ -49,7 +49,7 @@ public class BrackwoodSignBlockEntityRenderer implements BlockEntityRenderer<Bra
         SpriteIdentifier markingSpId = SpriteIdentifierUtil.makeMarkingTexture(marking);
 
         matrices.scale(0.6666667F, -0.6666667F, -0.6666667F);
-        VertexConsumer vertexConsumer = spId.getVertexConsumer(vertexConsumers, signModel::getLayer);
+        VertexConsumer vertexConsumer = SP_ID.getVertexConsumer(vertexConsumers, signModel::getLayer);
         VertexConsumer vertexConsumer2 = markingSpId.getVertexConsumer(vertexConsumers, signModel::getLayer);
         signModel.root.render(matrices, vertexConsumer, light, overlay);
         signModel.root.render(matrices, vertexConsumer2, light, overlay);
