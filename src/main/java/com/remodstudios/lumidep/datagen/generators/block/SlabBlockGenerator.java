@@ -1,7 +1,6 @@
-package com.remodstudios.lumidep.datagen.generators;
+package com.remodstudios.lumidep.datagen.generators.block;
 
 import com.google.gson.JsonObject;
-import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.util.IdUtils;
 import net.minecraft.block.Block;

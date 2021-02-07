@@ -1,4 +1,4 @@
-package com.remodstudios.lumidep.datagen.generators;
+package com.remodstudios.lumidep.datagen.generators.block;
 
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import com.swordglowsblue.artifice.api.builder.assets.BlockStateBuilder;

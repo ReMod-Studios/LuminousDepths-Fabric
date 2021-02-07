@@ -1,4 +1,4 @@
-package com.remodstudios.lumidep.datagen.generators;
+package com.remodstudios.lumidep.datagen.generators.item;
 
 import com.remodstudios.lumidep.LuminousDepths;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;

@@ -1,9 +1,8 @@
 package com.remodstudios.lumidep.items;
 
 import com.remodstudios.lumidep.LuminousDepths;
-import com.remodstudios.lumidep.blocks.BlockRegistry;
 import com.remodstudios.lumidep.datagen.ResourceGenerator;
-import com.remodstudios.lumidep.datagen.generators.BlockItemGenerator;
+import com.remodstudios.lumidep.datagen.generators.item.BlockItemGenerator;
 import com.swordglowsblue.artifice.api.ArtificeResourcePack;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;

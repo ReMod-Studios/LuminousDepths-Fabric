@@ -1,6 +1,11 @@
 package com.remodstudios.lumidep.datagen;
 
-import com.remodstudios.lumidep.datagen.generators.*;
+import com.remodstudios.lumidep.datagen.generators.block.DoorBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.block.LogBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.block.SimpleBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.block.TrapdoorBlockGenerator;
+import com.remodstudios.lumidep.datagen.generators.item.BlockItemGenerator;
+import com.remodstudios.lumidep.datagen.generators.item.SimpleItemGenerator;
 
 public final class ResourceGenerators {
 
