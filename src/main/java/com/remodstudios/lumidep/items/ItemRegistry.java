@@ -21,7 +21,7 @@ import static com.remodstudios.lumidep.blocks.BlockRegistry.*;
 
 
 public class ItemRegistry {
-    private static final Map<Identifier, Pair<Item, ResourceGenerator>> ITEMS = new Object2ObjectLinkedOpenHashMap<>();
+    public static final Map<Identifier, Pair<Item, ResourceGenerator>> ITEMS = new Object2ObjectLinkedOpenHashMap<>();
 
     private static final ItemGroup GROUP
             = FabricItemGroupBuilder.build(
@@ -108,7 +108,6 @@ public class ItemRegistry {
     private static BlockItem addBlockItem(String name, ResourceGenerator generator, Block block) {
         return addBlockItem(name, generator, block, BASE_SETTINGS);
     }
-
 
     private static BlockItem addBlockItem(String name, ResourceGenerator generator, Block block, FabricItemSettings settings) {
         BlockItem item = new BlockItem(block, settings);
