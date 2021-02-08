@@ -27,7 +27,11 @@ public class BlockRegistry {
     public static final Block BLACK_SAND = add("black_sand", new Block(FabricBlockSettings.copyOf(DIRT).sounds(BlockSoundGroup.SAND)));
     public static final Block TUNGSTEN_DEPOSIT = add("tungsten_deposit", new Block(FabricBlockSettings.copyOf(SANDSTONE).sounds(BlockSoundGroup.SAND)));
     public static final Block TUNGSTEN_BLOCK = add("tungsten_block", newCopy(IRON_BLOCK));
-    public static final Block CORALLINE_ALGAE = add("coralline_algae", newCopy(VINE));
+    public static final Block CORALLINE_ALGAE =
+            add("coralline_algae",
+                RegistrySettings.of(SIMPLE_BLOCK, RenderLayer.getTranslucent()),
+                new Block(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.VINE).nonOpaque())
+            );
     public static final Block DEAD_KELP = add("dead_kelp", newCopy(KELP_PLANT));
     public static final Block LUMEROCK = add("lumerock", newCopy(GLOWSTONE));
 
@@ -80,7 +84,6 @@ public class BlockRegistry {
                 new BrackwoodSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
         BRACKWOOD_WALL_SIGN = add("brackwood_wall_sign",
-                // FIXME: use brackwood_sign when creating loot table
                 RegistrySettings.of(new BlockWithEntityGenerator(brackwoodPlanksId)),
                 new BrackwoodWallSignBlock(FabricBlockSettings.copyOf(OAK_SIGN))
         );
