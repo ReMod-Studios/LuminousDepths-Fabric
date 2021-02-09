@@ -1,7 +1,7 @@
 package com.remodstudios.lumidep;
 
-import com.remodstudios.lumidep.blocks.BlockRegistry;
-import com.remodstudios.lumidep.items.ItemRegistry;
+import com.remodstudios.lumidep.blocks.LumiDepBlocks;
+import com.remodstudios.lumidep.items.LumiDepItems;
 import com.remodstudios.lumidep.tags.TagsRegistry;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
@@ -23,12 +23,12 @@ public class LuminousDepths implements ModInitializer {
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing");
-        BlockRegistry.init();
-        ItemRegistry.init();
+        LumiDepBlocks.INSTANCE.init();
+        LumiDepItems.INSTANCE.init();
 
         Artifice.registerDataPack(id("artifice_rp"), pack -> {
-            ItemRegistry.generateData(pack);
-            BlockRegistry.generateData(pack);
+            LumiDepBlocks.INSTANCE.generateData(pack);
+            LumiDepItems.INSTANCE.generateData(pack);
             TagsRegistry.generateData(pack);
 
             try {

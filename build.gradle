@@ -14,7 +14,13 @@ repositories {
 	maven {
 		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
 	}
-	maven { url 'https://jitpack.io' }
+	maven {
+		url = uri("https://maven.pkg.github.com/ReMod-Studios/yarn-and-needles")
+		credentials {
+			username = 'leocth'
+			password = '47c481f17b5bd163920490f3c50ee3107a52a516'
+		}
+	}
 }
 
 dependencies {
@@ -25,8 +31,8 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_api_version"
 
-	modImplementation "com.github.ReMod-Studios:Yarn-And-Needles:$ynn_version:dev"
-	include "com.github.ReMod-Studios:Yarn-And-Needles:$ynn_version:dev"
+	modImplementation "com.remodstudios:yarn-and-needles:$ynn_version:dev"
+	include "com.remodstudios:yarn-and-needles:$ynn_version:dev"
 
 	// geckolib is currently unavailable for 1.17 :sadtater:
 	//modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"

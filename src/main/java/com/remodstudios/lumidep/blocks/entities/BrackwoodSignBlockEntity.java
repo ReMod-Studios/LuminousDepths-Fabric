@@ -1,7 +1,7 @@
 package com.remodstudios.lumidep.blocks.entities;
 
 import com.remodstudios.lumidep.LuminousDepths;
-import com.remodstudios.lumidep.blocks.BlockRegistry;
+import com.remodstudios.lumidep.blocks.LumiDepBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -24,8 +24,8 @@ public class BrackwoodSignBlockEntity extends BlockEntity {
                 LuminousDepths.id("brackwood_sign"),
                 FabricBlockEntityTypeBuilder.create(
                     BrackwoodSignBlockEntity::new,
-                    BlockRegistry.BRACKWOOD_SIGN,
-                    BlockRegistry.BRACKWOOD_WALL_SIGN
+                    LumiDepBlocks.INSTANCE.BRACKWOOD_SIGN,
+                    LumiDepBlocks.INSTANCE.BRACKWOOD_WALL_SIGN
                 )
                 .build());
     }

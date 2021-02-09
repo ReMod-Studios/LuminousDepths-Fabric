@@ -1,6 +1,6 @@
 package com.remodstudios.lumidep.mixin.client;
 
-import com.remodstudios.lumidep.blocks.LumidepSignType;
+import com.remodstudios.lumidep.blocks.LumiDepSignType;
 import com.remodstudios.lumidep.blocks.MarkingType;
 import com.remodstudios.lumidep.util.SpriteIdentifierUtil;
 import net.minecraft.client.render.TexturedRenderLayers;
@@ -17,7 +17,7 @@ public class TexturedRenderLayersMixin {
 
     @Inject(method = "addDefaultTextures", at = @At("TAIL"))
     private static void addDefaultTextures(Consumer<SpriteIdentifier> adder, CallbackInfo ci) {
-        adder.accept(SpriteIdentifierUtil.makeSignTexture(LumidepSignType.BRACKWOOD));
+        adder.accept(SpriteIdentifierUtil.makeSignTexture(LumiDepSignType.BRACKWOOD));
         for (MarkingType type : MarkingType.values()) {
             adder.accept(SpriteIdentifierUtil.makeMarkingTexture(type));
         }

@@ -1,7 +1,7 @@
 package com.remodstudios.lumidep.client.render.block.entity;
 
 import com.remodstudios.lumidep.blocks.BrackwoodSignBlockCommon;
-import com.remodstudios.lumidep.blocks.LumidepSignType;
+import com.remodstudios.lumidep.blocks.LumiDepSignType;
 import com.remodstudios.lumidep.blocks.MarkingType;
 import com.remodstudios.lumidep.blocks.entities.BrackwoodSignBlockEntity;
 import com.remodstudios.lumidep.util.SpriteIdentifierUtil;
@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3f;
 
 public class BrackwoodSignBlockEntityRenderer implements BlockEntityRenderer<BrackwoodSignBlockEntity> {
 
-    private static final SignType SIGN_TYPE = LumidepSignType.BRACKWOOD;
+    private static final SignType SIGN_TYPE = LumiDepSignType.BRACKWOOD;
     private static final SpriteIdentifier SP_ID = SpriteIdentifierUtil.makeSignTexture(SIGN_TYPE);
     private final SignBlockEntityRenderer.SignModel signModel;
 

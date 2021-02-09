@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class BrackwoodWallSignBlock extends WallSignBlock {
     public BrackwoodWallSignBlock(Settings settings) {
-        super(settings, LumidepSignType.BRACKWOOD);
+        super(settings, LumiDepSignType.BRACKWOOD);
     }
 
     @Override
