@@ -11,7 +11,9 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	jcenter()
+	maven {
+		url = 'https://jitpack.io/'
+	}
 	maven {
 		name = 'SschrsRepo'
 		url = 'https://maven.concern.i.ng/'
@@ -37,8 +39,9 @@ dependencies {
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_api_version"
 
-	modImplementation "com.remodstudios:yarn-and-needles:$ynn_version:dev"
-	include "com.remodstudios:yarn-and-needles:$ynn_version:dev"
+	// Jitpack for now till we can get GitHub packages figured out
+	modImplementation "com.github.ReMod-Studios:yarn-and-needles:$ynn_version:dev"
+	include "com.github.ReMod-Studios:yarn-and-needles:$ynn_version:dev"
 
 	// official geckolib is currently unavailable for 1.17 :sadtater:
 	// modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
