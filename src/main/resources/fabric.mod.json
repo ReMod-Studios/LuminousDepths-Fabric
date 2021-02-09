@@ -26,6 +26,7 @@
   "depends": {
     "fabricloader": ">=0.11.1",
     "fabric": "*",
-    "yarnandneedles": ">=0.1.0"
+    "yarnandneedles": ">=0.1.0",
+    "geckolib3": ">=3.0.3"
   }
 }
