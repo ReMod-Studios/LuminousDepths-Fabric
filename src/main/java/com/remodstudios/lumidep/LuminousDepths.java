@@ -2,6 +2,8 @@ package com.remodstudios.lumidep;
 
 import com.remodstudios.lumidep.blocks.LumiDepBlocks;
 import com.remodstudios.lumidep.items.LumiDepItems;
+import com.remodstudios.lumidep.entities.EntityRegistry;
+
 import com.remodstudios.lumidep.tags.TagsRegistry;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
@@ -10,6 +12,7 @@ import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 import java.io.IOException;
 
@@ -25,6 +28,8 @@ public class LuminousDepths implements ModInitializer {
         log(Level.INFO, "Initializing");
         LumiDepBlocks.INSTANCE.init();
         LumiDepItems.INSTANCE.init();
+
+        GeckoLib.initialize();
 
         Artifice.registerDataPack(id("artifice_rp"), pack -> {
             LumiDepBlocks.INSTANCE.generateData(pack);

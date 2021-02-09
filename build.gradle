@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -11,6 +11,12 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	jcenter()
+	maven {
+		name = 'SschrsRepo'
+		url = 'https://maven.concern.i.ng/'
+	}
+	// For when we need it... one day.
 	maven {
 		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
 	}
@@ -24,7 +30,7 @@ repositories {
 }
 
 dependencies {
-	//to change the versions see the gradle.properties file
+	// to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:$minecraft_version"
 	mappings "net.fabricmc:yarn:$yarn_mappings:v2"
 	modImplementation "net.fabricmc:fabric-loader:$loader_version"
@@ -34,8 +40,10 @@ dependencies {
 	modImplementation "com.remodstudios:yarn-and-needles:$ynn_version:dev"
 	include "com.remodstudios:yarn-and-needles:$ynn_version:dev"
 
-	// geckolib is currently unavailable for 1.17 :sadtater:
-	//modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
+	// official geckolib is currently unavailable for 1.17 :sadtater:
+	// modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
+	modImplementation 'software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev'
+	include 'software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev'
 
 }
 
