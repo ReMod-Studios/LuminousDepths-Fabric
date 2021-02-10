@@ -1,8 +1,8 @@
 package com.remodstudios.lumidep;
 
 import com.remodstudios.lumidep.blocks.LumiDepBlocks;
+import com.remodstudios.lumidep.entities.LumiDepEntities;
 import com.remodstudios.lumidep.items.LumiDepItems;
-import com.remodstudios.lumidep.entities.EntityRegistry;
 
 import com.remodstudios.lumidep.tags.TagsRegistry;
 import com.swordglowsblue.artifice.api.Artifice;
@@ -28,6 +28,7 @@ public class LuminousDepths implements ModInitializer {
         log(Level.INFO, "Initializing");
         LumiDepBlocks.INSTANCE.init();
         LumiDepItems.INSTANCE.init();
+        LumiDepEntities.INSTANCE.init();
 
         GeckoLib.initialize();
 
