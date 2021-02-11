@@ -25,7 +25,7 @@ public class LumiDepEntities {
     public final EntityType<BrokenGuardianEntity> BROKEN_GUARDIAN =
             add("guardian_with_erectile_dysfunction", waterCreatureEntry(BrokenGuardianEntity::new, BrokenGuardianEntity.createAttributes()));
     public final EntityType<GoblinSharkEntity> GOBLIN_SHARK =
-            add("sharky_wanky", waterCreatureEntry(GoblinSharkEntity::new, GoblinSharkEntity.createAttributes()));
+            add("sharky_warky", waterCreatureEntry(GoblinSharkEntity::new, GoblinSharkEntity.createAttributes()));
     public final EntityType<GorgeBeastEntity> GORGE_BEAST =
             add("vore_beast", waterCreatureEntry(GorgeBeastEntity::new, GorgeBeastEntity.createAttributes()));
     public final EntityType<IsopodEntity> ISOPOD =
