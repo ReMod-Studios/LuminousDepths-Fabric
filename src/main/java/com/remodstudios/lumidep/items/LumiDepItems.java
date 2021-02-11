@@ -60,13 +60,13 @@ public class LumiDepItems extends ItemRegistry {
             = addBlockItem("brackwood_fence", new BlockItemGenerator(LuminousDepths.id("brackwood_fence_inventory")));
     public final BlockItem BRACKWOOD_FENCE_GATE       = addBlockItem("brackwood_fence_gate");
 
-    public final SpawnEggItem ADULT_KREPLER_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ADULT_KREPLER, 0, 0);
-    public final SpawnEggItem ANGLERFISH_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ANGLERFISH, 0, 0);
-    public final SpawnEggItem BROKEN_GUARDIAN_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.BROKEN_GUARDIAN, 0, 0);
-    public final SpawnEggItem GOBLIN_SHARK_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.GOBLIN_SHARK, 0, 0);
-    public final SpawnEggItem GORGE_BEAST_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.GORGE_BEAST, 0, 0);
-    public final SpawnEggItem ISOPOD_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ISOPOD, 0, 0);
-    public final SpawnEggItem MANTARAY_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.MANTARAY, 0, 0);
+    public final SpawnEggItem ADULT_KREPLER_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ADULT_KREPLER, 0x5D703B, 0x963B12);
+    public final SpawnEggItem ANGLERFISH_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ANGLERFISH, 0x2C2834, 0x64D3FF);
+    public final SpawnEggItem BROKEN_GUARDIAN_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.BROKEN_GUARDIAN, 0x5D6362, 0x744332);
+    public final SpawnEggItem GOBLIN_SHARK_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.GOBLIN_SHARK, 0x93688C, 0xA57B97);
+    public final SpawnEggItem GORGE_BEAST_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.GORGE_BEAST, 0x1A282D, 0x00FF93);
+    public final SpawnEggItem ISOPOD_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.ISOPOD, 0x9D555D, 0xB68579);
+    public final SpawnEggItem MANTARAY_SPAWN_EGG = addSpawnEgg(LuminousDepths.ENTITIES.MANTARAY, 0x110F17, 0x888893);
     //endregion
 
     public LumiDepItems() {
