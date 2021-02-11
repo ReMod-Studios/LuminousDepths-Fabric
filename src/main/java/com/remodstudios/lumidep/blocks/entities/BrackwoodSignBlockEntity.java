@@ -24,8 +24,8 @@ public class BrackwoodSignBlockEntity extends BlockEntity {
                 LuminousDepths.id("brackwood_sign"),
                 FabricBlockEntityTypeBuilder.create(
                     BrackwoodSignBlockEntity::new,
-                    LumiDepBlocks.INSTANCE.BRACKWOOD_SIGN,
-                    LumiDepBlocks.INSTANCE.BRACKWOOD_WALL_SIGN
+                    LuminousDepths.BLOCKS.BRACKWOOD_SIGN,
+                    LuminousDepths.BLOCKS.BRACKWOOD_WALL_SIGN
                 )
                 .build());
     }

@@ -14,7 +14,6 @@ import static net.minecraft.block.Blocks.*;
 
 @SuppressWarnings("unused")
 public class LumiDepBlocks extends BlockRegistry {
-    public static final LumiDepBlocks INSTANCE = new LumiDepBlocks();
 
     //region Block declarations
     public final Block BLACK_SAND = add("black_sand", new Block(FabricBlockSettings.copyOf(DIRT).sounds(BlockSoundGroup.SAND)));

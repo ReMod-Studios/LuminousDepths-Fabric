@@ -23,18 +23,22 @@ public class LuminousDepths implements ModInitializer {
 
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
+    public static final LumiDepBlocks BLOCKS = new LumiDepBlocks();
+    public static final LumiDepEntities ENTITIES = new LumiDepEntities();
+    public static final LumiDepItems ITEMS = new LumiDepItems();
+
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing");
-        LumiDepBlocks.INSTANCE.init();
-        LumiDepItems.INSTANCE.init();
-        LumiDepEntities.INSTANCE.init();
+        BLOCKS.init();
+        ENTITIES.init();
+        ITEMS.init();
 
         GeckoLib.initialize();
 
         Artifice.registerDataPack(id("artifice_rp"), pack -> {
-            LumiDepBlocks.INSTANCE.generateData(pack);
-            LumiDepItems.INSTANCE.generateData(pack);
+            BLOCKS.generateData(pack);
+            ITEMS.generateData(pack);
             TagsRegistry.generateData(pack);
 
             try {
