@@ -38,7 +38,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
     private final AnimationFactory factory = new AnimationFactory(this);
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.base_aquatic.move", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinshark.move", true));
         return PlayState.CONTINUE;
     }
 
@@ -87,7 +87,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
         super.tick();
         if (this.isAiDisabled()) {
             this.setAir(this.getMaxAir());
-        } else {
+        } else if (!this.isWet()) {
             if (this.onGround) {
                 this.setVelocity(this.getVelocity().add(((this.random.nextFloat() * 2f - 1f) * 0.2f), 0.5, ((this.random.nextFloat() * 2f - 1f) * 0.2f)));
                 this.yaw = this.random.nextFloat() * 360f;
@@ -101,7 +101,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
                 float g = MathHelper.sin(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
                 float h = 1.2f - this.random.nextFloat() * 0.7f;
 
-                for(int i = 0; i < 2; ++i) {
+                for (int i = 0; i < 2; ++i) {
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h + f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h + g, 0.0, 0.0, 0.0);
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h - f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h - g, 0.0, 0.0, 0.0);
                 }
