@@ -12,13 +12,14 @@ group = project.maven_group
 
 repositories {
 	maven {
+		name = 'Jitpack'
 		url = 'https://jitpack.io/'
 	}
 	maven {
 		name = 'SschrsRepo'
 		url = 'https://maven.concern.i.ng/'
 	}
-	// For when we need it... one day.
+	/* For when we need it... one day.
 	maven {
 		url = 'https://repo.repsy.io/mvn/gandiber/geckolib'
 	}
@@ -29,6 +30,7 @@ repositories {
 			password = '47c481f17b5bd163920490f3c50ee3107a52a516'
 		}
 	}
+	*/
 }
 
 dependencies {
@@ -44,9 +46,10 @@ dependencies {
 	include "com.github.ReMod-Studios:yarn-and-needles:$ynn_version:dev"
 
 	// official geckolib is currently unavailable for 1.17 :sadtater:
-	// modImplementation "software.bernie.geckolib:geckolib-fabric-${project.geckolib_version}"
-	modImplementation 'software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev'
-	include 'software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev'
+	// modImplementation "software.bernie.geckolib:geckolib-fabric-$geckolib_version"
+	// iclude "software.bernie.geckolib:geckolib-fabric-$geckolib_version"
+	modImplementation "software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev"
+	include "software.bernie.geckolib:fabric-1.16.4-geckolib:3.0.3:dev"
 
 }
 

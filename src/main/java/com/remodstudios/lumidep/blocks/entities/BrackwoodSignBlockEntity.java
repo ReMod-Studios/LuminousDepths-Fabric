@@ -1,7 +1,6 @@
 package com.remodstudios.lumidep.blocks.entities;
 
 import com.remodstudios.lumidep.LuminousDepths;
-import com.remodstudios.lumidep.blocks.LumiDepBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;

@@ -65,9 +65,11 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6f));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.2, true));
-        this.goalSelector.add(8, new ChaseBoatGoal(this));
-        this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, GorgeBeastEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, AdultKreplerEntity.class, 8f, 1.0, 1.0));
         this.targetSelector.add(1, (new RevengeGoal(this, GuardianEntity.class)).setGroupRevenge());
+        this.targetSelector.add(3, new FollowTargetGoal<>(this, AnglerfishEntity.class, 10, true, false, (livingEntity) -> true));
     }
 
     @Override
