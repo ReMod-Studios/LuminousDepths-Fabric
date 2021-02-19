@@ -27,6 +27,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
@@ -37,6 +38,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
     private final AnimationFactory factory = new AnimationFactory(this);
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.goblinshark.move", true));
         return PlayState.CONTINUE;
     }
 
@@ -63,9 +65,11 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6f));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.2, true));
-        this.goalSelector.add(8, new ChaseBoatGoal(this));
-        this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, GorgeBeastEntity.class, 8f, 1.0, 1.0));
+        this.goalSelector.add(3, new FleeEntityGoal<>(this, AdultKreplerEntity.class, 8f, 1.0, 1.0));
         this.targetSelector.add(1, (new RevengeGoal(this, GuardianEntity.class)).setGroupRevenge());
+        this.targetSelector.add(3, new FollowTargetGoal<>(this, AnglerfishEntity.class, 10, true, false, (livingEntity) -> true));
     }
 
     @Override
@@ -85,7 +89,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
         super.tick();
         if (this.isAiDisabled()) {
             this.setAir(this.getMaxAir());
-        } else {
+        } else if (!this.isWet()) {
             if (this.onGround) {
                 this.setVelocity(this.getVelocity().add(((this.random.nextFloat() * 2f - 1f) * 0.2f), 0.5, ((this.random.nextFloat() * 2f - 1f) * 0.2f)));
                 this.yaw = this.random.nextFloat() * 360f;
@@ -99,7 +103,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
                 float g = MathHelper.sin(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
                 float h = 1.2f - this.random.nextFloat() * 0.7f;
 
-                for(int i = 0; i < 2; ++i) {
+                for (int i = 0; i < 2; ++i) {
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h + f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h + g, 0.0, 0.0, 0.0);
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h - f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h - g, 0.0, 0.0, 0.0);
                 }

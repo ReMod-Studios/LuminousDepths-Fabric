@@ -1,0 +1,22 @@
+{
+	"format_version" : "1.8.0",
+	"animations" : {
+		"animation.base_aquatic.move" : {
+			"loop" : true,
+			"bones" : {
+				"left_fin" : {
+					"rotation" : [ 0.0, 0.0, "17.19 * math.cos(query.anim_time * 229.2) + 22.92" ]
+				},
+				"right_fin" : {
+					"rotation" : [ 0.0, 0.0, "-17.19 * math.cos(query.anim_time * 229.2) - 22.92" ]
+				},
+				"tail" : {
+					"rotation" : [ 0.0, "-5.73 * math.cos(query.anim_time * 343.8)", 0.0 ]
+				},
+				"tail_fin" : {
+					"rotation" : [ 0.0, "-11.46 * math.cos(query.anim_time * 343.8)", 0.0 ]
+				}
+			}
+		}
+	}
+}
