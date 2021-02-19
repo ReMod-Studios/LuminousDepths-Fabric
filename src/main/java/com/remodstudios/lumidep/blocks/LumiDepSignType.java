@@ -1,6 +1,6 @@
 package com.remodstudios.lumidep.blocks;
 
-import com.remodstudios.yarnandneedles.blocks.SignTypeRegistry;
+import com.remodstudios.yarnandneedles.blocks.util.SignTypeRegistry;
 import net.minecraft.util.SignType;
 
 public class LumiDepSignType extends SignType {
