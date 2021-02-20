@@ -34,6 +34,7 @@ public class LumiDepItems extends ItemRegistry {
     public final Item TUNGSTEN_INGOT             = add("tungsten_ingot");
     public final Item TUNGSTEN_NUGGET            = add("tungsten_nugget");
 
+
     public final BlockItem TUNGSTEN_BLOCK             = addBlockItem("tungsten_block");
     public final BlockItem TUNGSTEN_DEPOSIT           = addBlockItem("tungsten_deposit");
     public final BlockItem BLACK_SAND                 = addBlockItem("black_sand");
