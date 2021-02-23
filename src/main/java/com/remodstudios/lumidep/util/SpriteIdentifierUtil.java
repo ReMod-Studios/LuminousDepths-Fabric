@@ -7,7 +7,8 @@ import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.util.SignType;
 
 public final class SpriteIdentifierUtil {
-    private SpriteIdentifierUtil() {}
+    private SpriteIdentifierUtil() {
+    }
 
     public static SpriteIdentifier makeSignTexture(SignType type) {
         return new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, LuminousDepths.id("entity/signs/" + type.getName()));

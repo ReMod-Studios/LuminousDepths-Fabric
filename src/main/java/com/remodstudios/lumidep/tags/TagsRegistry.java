@@ -12,12 +12,12 @@ public class TagsRegistry {
 
     public static void generateData(ArtificeResourcePack.ServerResourcePackBuilder pack) {
         pack.addItemTag(LuminousDepths.id("shiny"), tag -> tag
-            // yes im using raw json :yeehaw: - leocth
-            .values(
-                LuminousDepths.id("tungsten_block"),
-                LuminousDepths.id("tungsten_ingot"),
-                LuminousDepths.id("tungsten_nugget")
-            )
+                // yes im using raw json :yeehaw: - leocth
+                .values(
+                        LuminousDepths.id("tungsten_block"),
+                        LuminousDepths.id("tungsten_ingot"),
+                        LuminousDepths.id("tungsten_nugget")
+                )
         );
     }
 }

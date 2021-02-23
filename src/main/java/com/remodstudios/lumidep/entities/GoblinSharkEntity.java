@@ -114,7 +114,7 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.dealDamage(this, target);
             this.playSound(SoundEvents.ENTITY_DOLPHIN_ATTACK, 1f, 1f);
@@ -175,7 +175,6 @@ public class GoblinSharkEntity extends WaterCreatureEntity implements IAnimatabl
     @Override
     protected void tickWaterBreathingAir(int air) {
     }
-
 
 
 }

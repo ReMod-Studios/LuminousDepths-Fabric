@@ -15,7 +15,8 @@ import net.minecraft.world.World;
 
 // this is jank
 public final class BrackwoodSignBlockCommon {
-    private BrackwoodSignBlockCommon() {}
+    private BrackwoodSignBlockCommon() {
+    }
 
     public static EnumProperty<MarkingType> MARKING = EnumProperty.of("marking", MarkingType.class);
 

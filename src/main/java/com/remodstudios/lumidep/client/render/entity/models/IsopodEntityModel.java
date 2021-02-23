@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class IsopodEntityModel extends AnimatedGeoModel<IsopodEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/isopod.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/isopod.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/isopod.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/isopod.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/isopod.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/isopod.animation.json");
 
     @Override
     public Identifier getModelLocation(IsopodEntity isopodEntity) {

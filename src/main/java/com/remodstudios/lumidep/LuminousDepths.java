@@ -3,11 +3,9 @@ package com.remodstudios.lumidep;
 import com.remodstudios.lumidep.blocks.LumiDepBlocks;
 import com.remodstudios.lumidep.entities.LumiDepEntities;
 import com.remodstudios.lumidep.items.LumiDepItems;
-
 import com.remodstudios.lumidep.tags.TagsRegistry;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -50,9 +48,12 @@ public class LuminousDepths implements ModInitializer {
         });
     }
 
-    public static void log(Level level, String message){
+    public static void log(Level level, String message) {
         LOGGER.log(level, message);
     }
-    public static Identifier id(String path) { return new Identifier(MOD_ID, path); }
+
+    public static Identifier id(String path) {
+        return new Identifier(MOD_ID, path);
+    }
 
 }

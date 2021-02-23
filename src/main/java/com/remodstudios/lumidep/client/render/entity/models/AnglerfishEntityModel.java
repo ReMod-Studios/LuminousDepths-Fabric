@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class AnglerfishEntityModel extends AnimatedGeoModel<AnglerfishEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/anglerfish.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/anglerfish.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/anglerfish.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/anglerfish.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/anglerfish.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/anglerfish.animation.json");
 
     @Override
     public Identifier getModelLocation(AnglerfishEntity anglerfishEntity) {

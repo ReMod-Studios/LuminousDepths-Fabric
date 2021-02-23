@@ -22,10 +22,10 @@ public class BrackwoodSignBlockEntity extends BlockEntity {
                 Registry.BLOCK_ENTITY_TYPE,
                 LuminousDepths.id("brackwood_sign"),
                 FabricBlockEntityTypeBuilder.create(
-                    BrackwoodSignBlockEntity::new,
-                    LuminousDepths.BLOCKS.BRACKWOOD_SIGN,
-                    LuminousDepths.BLOCKS.BRACKWOOD_WALL_SIGN
+                        BrackwoodSignBlockEntity::new,
+                        LuminousDepths.BLOCKS.BRACKWOOD_SIGN,
+                        LuminousDepths.BLOCKS.BRACKWOOD_WALL_SIGN
                 )
-                .build());
+                        .build());
     }
 }

@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class MantarayEntityModel extends AnimatedGeoModel<MantarayEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/mantaray.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/mantaray.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/mantaray.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/mantaray.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/mantaray.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/mantaray.animation.json");
 
     @Override
     public Identifier getModelLocation(MantarayEntity mantarayEntity) {

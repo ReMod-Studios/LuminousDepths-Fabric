@@ -79,6 +79,7 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.2)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
+
     @Override
     public void tick() {
         super.tick();
@@ -98,7 +99,7 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
                 float g = MathHelper.sin(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
                 float h = 1.2f - this.random.nextFloat() * 0.7f;
 
-                for(int i = 0; i < 2; ++i) {
+                for (int i = 0; i < 2; ++i) {
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h + f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h + g, 0.0, 0.0, 0.0);
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h - f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h - g, 0.0, 0.0, 0.0);
                 }
@@ -109,7 +110,7 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.dealDamage(this, target);
             this.playSound(SoundEvents.ENTITY_DOLPHIN_ATTACK, 1f, 1f);
