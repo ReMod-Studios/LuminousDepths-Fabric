@@ -33,7 +33,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 @SuppressWarnings("EntityConstructor") // mojang has gotten smarter; now shut
-public class IsopodEntity extends WaterCreatureEntity implements IAnimatable {
+public class IsopodEntity extends OceanFloorWalkerEntity implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
@@ -42,9 +42,6 @@ public class IsopodEntity extends WaterCreatureEntity implements IAnimatable {
 
     public IsopodEntity(EntityType<? extends IsopodEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new AquaticMoveControl(this, 85, 10, 0.02F, 0.1F, true);
-        this.lookControl = new AquaticLookControl(this, 10);
-        this.setCanPickUpLoot(true);
     }
 
     @Nullable
@@ -56,16 +53,8 @@ public class IsopodEntity extends WaterCreatureEntity implements IAnimatable {
 
     @Override
     protected void initGoals() {
+        super.initGoals();
         this.goalSelector.add(0, new BreatheAirGoal(this));
-        this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(3, new TemptGoal(this, 1.2, Ingredient.fromTag(TagsRegistry.SHINY), false));
-        this.goalSelector.add(4, new SwimAroundGoal(this, 1.0, 10));
-        this.goalSelector.add(4, new LookAroundGoal(this));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6f));
-        this.goalSelector.add(6, new MeleeAttackGoal(this, 1.2, true));
-        this.goalSelector.add(8, new ChaseBoatGoal(this));
-        this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
-        this.targetSelector.add(1, (new RevengeGoal(this, GuardianEntity.class)).setGroupRevenge());
     }
 
     @Override
@@ -76,41 +65,13 @@ public class IsopodEntity extends WaterCreatureEntity implements IAnimatable {
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.2)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
     }
 
     @Override
-    public void tick() {
-        super.tick();
-        if (this.isAiDisabled()) {
-            this.setAir(this.getMaxAir());
-        } else {
-            if (this.onGround) {
-                this.setVelocity(this.getVelocity().add(((this.random.nextFloat() * 2f - 1f) * 0.2f), 0.5, ((this.random.nextFloat() * 2f - 1f) * 0.2f)));
-                this.yaw = this.random.nextFloat() * 360f;
-                this.onGround = false;
-                this.velocityDirty = true;
-            }
-
-            if (this.world.isClient && this.isTouchingWater() && this.getVelocity().lengthSquared() > 0.03) {
-                Vec3d vec3d = this.getRotationVec(0f);
-                float f = MathHelper.cos(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
-                float g = MathHelper.sin(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
-                float h = 1.2f - this.random.nextFloat() * 0.7f;
-
-                for (int i = 0; i < 2; ++i) {
-                    this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h + f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h + g, 0.0, 0.0, 0.0);
-                    this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h - f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h - g, 0.0, 0.0, 0.0);
-                }
-            }
-        }
-    }
-
-
-    @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(DamageSource.mob(this), (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
         if (bl) {
             this.dealDamage(this, target);
             this.playSound(SoundEvents.ENTITY_DOLPHIN_ATTACK, 1f, 1f);
