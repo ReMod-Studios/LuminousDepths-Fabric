@@ -1,27 +1,15 @@
 package com.remodstudios.lumidep.entities;
 
-import com.remodstudios.lumidep.tags.TagsRegistry;
-import com.remodstudios.lumidep.util.MafsUtil;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.control.AquaticLookControl;
-import net.minecraft.entity.ai.control.AquaticMoveControl;
-import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import com.remodstudios.lumidep.entities.AdultKreplerEntity;
-import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.WaterCreatureEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -57,6 +45,7 @@ public class AdultKreplerEntity extends OceanFloorWalkerEntity implements IAnima
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(0, new BreatheAirGoal(this));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, true));
     }
 
     @Override
