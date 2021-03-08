@@ -6,9 +6,9 @@ import com.remodstudios.lumidep.entities.GoblinSharkEntity;
 import net.minecraft.util.Identifier;
 
 public class GoblinSharkEntityModel extends SwimmingGeoModel<GoblinSharkEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/goblinshark.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/goblinshark.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/goblinshark.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/goblinshark.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/goblinshark.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/goblinshark.animation.json");
 
     @Override
     public Identifier getModelLocation(GoblinSharkEntity goblinSharkEntity) {

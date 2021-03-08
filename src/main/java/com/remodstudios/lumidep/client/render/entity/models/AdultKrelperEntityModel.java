@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class AdultKrelperEntityModel extends AnimatedGeoModel<AdultKreplerEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/adultkrelper.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/adultkrelper.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/adultkrelper.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/adultkrelper.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/adultkrelper.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/adultkrelper.animation.json");
 
     @Override
     public Identifier getModelLocation(AdultKreplerEntity adultKreplerEntity) {

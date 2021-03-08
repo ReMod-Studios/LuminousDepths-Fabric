@@ -33,7 +33,8 @@ public class LumiDepEntities {
             add("megagay", createLivingEntityEntry(MantarayEntity::new, MantarayEntity.createAttributes(), 4.0F, 0.6F));
 
     public static class RegistryEntry<T extends Entity> {
-        @NotNull public final EntityType<T> entityType;
+        @NotNull
+        public final EntityType<T> entityType;
 
         public RegistryEntry(@NotNull EntityType<T> entityType) {
             this.entityType = entityType;
@@ -44,7 +45,8 @@ public class LumiDepEntities {
         }
 
         public static class Living<T extends LivingEntity> extends RegistryEntry<T> {
-            @Nullable public final DefaultAttributeContainer.Builder attributeBuilder;
+            @Nullable
+            public final DefaultAttributeContainer.Builder attributeBuilder;
 
             public Living(@NotNull EntityType<T> entityType, @Nullable DefaultAttributeContainer.Builder attributeBuilder) {
                 super(entityType);
@@ -79,7 +81,8 @@ public class LumiDepEntities {
     }
 
     private <T extends Entity> EntityType<T> add(String id, RegistryEntry<T> entry) {
-        ENTITIES.put(LuminousDepths.id(id), entry); return entry.entityType;
+        ENTITIES.put(LuminousDepths.id(id), entry);
+        return entry.entityType;
     }
 
     // This is very not poggers, just for Pichu's slave driving needs

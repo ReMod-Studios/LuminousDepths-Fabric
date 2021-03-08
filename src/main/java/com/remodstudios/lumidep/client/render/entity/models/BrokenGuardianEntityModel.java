@@ -7,9 +7,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class BrokenGuardianEntityModel extends AnimatedGeoModel<BrokenGuardianEntity> {
-    private static Identifier MODEL = LuminousDepths.id("geo/brokenguardian.geo.json");
-    private static Identifier TEXTURE = LuminousDepths.id("textures/entity/brokenguardian.png");
-    private static Identifier ANIMATION = LuminousDepths.id("animations/brokenguardian.animation.json");
+    private static final Identifier MODEL = LuminousDepths.id("geo/brokenguardian.geo.json");
+    private static final Identifier TEXTURE = LuminousDepths.id("textures/entity/brokenguardian.png");
+    private static final Identifier ANIMATION = LuminousDepths.id("animations/brokenguardian.animation.json");
 
     @Override
     public Identifier getModelLocation(BrokenGuardianEntity brokenGuardianEntity) {

@@ -58,14 +58,13 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
     protected void initGoals() {
         this.goalSelector.add(0, new BreatheAirGoal(this));
         this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-        this.goalSelector.add(3, new TemptGoal(this, 1.2, Ingredient.fromTag(TagsRegistry.SHINY), false));
         this.goalSelector.add(4, new SwimAroundGoal(this, 1.0, 10));
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6f));
         this.goalSelector.add(6, new MeleeAttackGoal(this, 1.2, true));
         this.goalSelector.add(8, new ChaseBoatGoal(this));
-        this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8f, 1.0, 1.0));
-        this.targetSelector.add(1, (new RevengeGoal(this, GuardianEntity.class)).setGroupRevenge());
+        this.targetSelector.add(1, (new RevengeGoal(this)).setGroupRevenge());
+        this.targetSelector.add(2, (new FollowTargetGoal<>(this, PlayerEntity.class, true, true)));
     }
 
     @Override
@@ -75,10 +74,11 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 40.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.2)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0);
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0);
     }
+
     @Override
     public void tick() {
         super.tick();
@@ -98,7 +98,7 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
                 float g = MathHelper.sin(this.yaw * MafsUtil.DEG2RAD) * 0.3f;
                 float h = 1.2f - this.random.nextFloat() * 0.7f;
 
-                for(int i = 0; i < 2; ++i) {
+                for (int i = 0; i < 2; ++i) {
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h + f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h + g, 0.0, 0.0, 0.0);
                     this.world.addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3d.x * h - f, this.getY() - vec3d.y, this.getZ() - vec3d.z * h - g, 0.0, 0.0, 0.0);
                 }
@@ -109,7 +109,7 @@ public class GorgeBeastEntity extends WaterCreatureEntity implements IAnimatable
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (float)((int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
+        boolean bl = target.damage(DamageSource.mob(this), (float) ((int) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE)));
         if (bl) {
             this.dealDamage(this, target);
             this.playSound(SoundEvents.ENTITY_DOLPHIN_ATTACK, 1f, 1f);

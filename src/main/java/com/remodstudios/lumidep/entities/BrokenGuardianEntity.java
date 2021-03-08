@@ -1,6 +1,6 @@
 package com.remodstudios.lumidep.entities;
 
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
